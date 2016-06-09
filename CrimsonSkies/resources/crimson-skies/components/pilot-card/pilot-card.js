@@ -19,7 +19,7 @@ importClass( arkham.component.DefaultPortrait );
 if( sourcefile == 'Quickscript' ) {
 	useLibrary( 'project:CrimsonSkies/resources/crimson-skies/test-lib.js' );
 }
-const Xwing = Eons.namedObjects.Xwing;
+const CSkies = Eons.namedObjects.CSkies;
 
 portraits = [];
 
@@ -40,7 +40,7 @@ function getPortrait( index ) {
 
 function create( diy ) {
 	diy.version = 3;
-	diy.extensionName = 'Xwing.seext';
+	diy.extensionName = 'CSkies.seext';
 	diy.faceStyle = FaceStyle.CARD_AND_MARKER;
 	diy.transparentFaces = true;
 	diy.variableSizedFaces = true;
@@ -99,6 +99,7 @@ function create( diy ) {
 	$CustomEvadeAction = #cs-pilot-custom-evade;
 	$CustomCloakAction = #cs-pilot-custom-cloak;
 	$CustomSlamAction = #cs-pilot-custom-slam;
+	$CustomDriftAction = #cs-pilot-custom-drift;
 	$CustomUpgrade1 = #cs-pilot-custom-upgrade-1;
 	$CustomUpgrade2 = #cs-pilot-custom-upgrade-2;
 	$CustomUpgrade3 = #cs-pilot-custom-upgrade-3;
@@ -182,7 +183,7 @@ function createInterface( diy, editor ) {
 	
 	specialSymbolsTip = tipButton( @cs-text-tooltip );
 
-	pointAdjuster = spinner( -1, 5, 1, 0 );
+	pointAdjuster = spinner( -15, 5, 15, 0 );
 	bindings.add( 'PointAdjuster', pointAdjuster, [0] );
 	
 	pointAdjusterTip = tipButton( @cs-pointadjuster-tooltip );
@@ -256,6 +257,8 @@ function createInterface( diy, editor ) {
 	bindings.add( 'CustomCloakAction', customCloakCheckbox, [0,2] );
 	customSlamCheckbox = checkBox( @cs-action-slam );
 	bindings.add( 'CustomSlamAction', customSlamCheckbox, [0,2] );
+	customDriftCheckbox = checkBox( @cs-action-drift );
+	bindings.add( 'CustomDriftAction', customDriftCheckbox, [0,2] );
 	
 	upgradeItems = [];
 	upgradeItems[0] = ListItem( '-', '-' );
@@ -341,7 +344,7 @@ function createInterface( diy, editor ) {
 	customPanel.place( @cs-actions, 'wrap' );
 	customPanel.place( customFocusCheckbox, '', customLockCheckbox, '', customRollCheckbox, 'wrap' );
 	customPanel.place( customBoostCheckbox, '', customEvadeCheckbox, '', customCloakCheckbox, 'wrap' );
-	customPanel.place( customSlamCheckbox, 'wrap para' );
+	customPanel.place( customSlamCheckbox, '', customDriftCheckbox, 'wrap para' );
 	customPanel.place( separator(), 'span, growx, wrap para' );
 	customPanel.place( @cs-upgrades, 'wrap' );
 	customPanel.place( customUpgradeBox1, 'wmin 100', customUpgradeBox2, 'wmin 100', customUpgradeBox3, 'wmin 100, wrap' );
@@ -374,6 +377,7 @@ function createInterface( diy, editor ) {
 				customEvadeCheckbox.setEnabled(false);
 				customCloakCheckbox.setEnabled(false);
 				customSlamCheckbox.setEnabled(false);
+				customDriftCheckbox.setEnabled(false);
 				customUpgradeBox1.setEnabled(false);
 				customUpgradeBox2.setEnabled(false);
 				customUpgradeBox3.setEnabled(false);
@@ -400,6 +404,7 @@ function createInterface( diy, editor ) {
 				customEvadeCheckbox.setEnabled(true);
 				customCloakCheckbox.setEnabled(true);
 				customSlamCheckbox.setEnabled(true);
+				customDriftCheckbox.setEnabled(true);
 				customUpgradeBox1.setEnabled(true);
 				customUpgradeBox2.setEnabled(true);
 				customUpgradeBox3.setEnabled(true);
@@ -422,7 +427,7 @@ function createInterface( diy, editor ) {
 		}
 	}
 
-	mainPanel.addToEditor( editor, @xw_info, null, null, 0 );
+	mainPanel.addToEditor( editor, @cs_info, null, null, 0 );
 	customPanel.addToEditor( editor, @cs-custom, null, null, 1 );
 	editor.addFieldPopulationListener( actionFunction );
 	bindings.bind();
@@ -436,16 +441,16 @@ function createFrontPainter( diy, sheet ) {
 
 	//============== Ship Token ==============
 	if( sheet.sheetIndex == 2 ) {
-		tokenNameBox = Xwing.headingBox( sheet, 6.8 );
+		tokenNameBox = CSkies.headingBox( sheet, 6.8 );
 		return;
 	}
 	
 	//============== Front Sheet ==============
-	nameBox = Xwing.headingBox( sheet, 10 );
-	shiptypeBox = Xwing.headingBox( sheet, 12.5 );
+	nameBox = CSkies.headingBox( sheet, 10 );
+	shiptypeBox = CSkies.headingBox( sheet, 12.5 );
 	
-	abilityTextBox = Xwing.abilityBox( sheet, 8 );
-	flavorTextBox = Xwing.flavorBox( sheet, 8 );
+	abilityTextBox = CSkies.abilityBox( sheet, 8 );
+	flavorTextBox = CSkies.flavorBox( sheet, 8 );
 
 	legalBox = markupBox( sheet );
 	legalBox.defaultStyle = new TextStyle(
@@ -490,7 +495,7 @@ function paintFront( g, diy, sheet ) {
 		// Draw shaded fire arc area
 		fireArcArea = ImageUtils.create( tokenWidth, tokenHeight, true );
 		gTemp = fireArcArea.createGraphics();
-		gTemp.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+		gTemp.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 		if( tokenSize == 'small' ) {
 			gTemp.fillPolygon( [0, Math.round(tokenWidth/2), tokenWidth], [-3, Math.round(tokenHeight/2)-3, -3], 3 );
 			if( ( $ShipType == 'custom' && $CustomArc == 'rear' ) || ( $ShipType != 'custom' &&  getShipStat( $ShipType, 'arc' ) == 'rear' ) ) {
@@ -511,7 +516,7 @@ function paintFront( g, diy, sheet ) {
 
 		// Draw turret circle
 		if( ( $ShipType == 'custom' && $CustomArc == 'turret' ) || ( $ShipType != 'custom' &&  getShipStat( $ShipType, 'arc' ) == 'turret' ) ) {
-			g.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+			g.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 			g.setStroke(thinStroke);
 			if( tokenSize == 'small' ) {
 				diameter = 270;
@@ -531,7 +536,7 @@ function paintFront( g, diy, sheet ) {
 		}
 		
 		// Draw stat panel
-		sheet.paintImage( g, 'pilot-' + Xwing.getPrimaryFaction( $Affiliation ) + '-' + tokenSize + '-panel-template', 0, tokenHeight-230);
+		sheet.paintImage( g, 'pilot-' + CSkies.getPrimaryFaction( $Affiliation ) + '-' + tokenSize + '-panel-template', 0, tokenHeight-230);
 
 		// Draw the name
 		if( $$UniquePilot.yesNo ) {
@@ -544,7 +549,7 @@ function paintFront( g, diy, sheet ) {
 		tokenNameBox.drawAsSingleLine( g, R( tokenSize + '-token-name' ) );
 		
 		// Draw the Pilot Skill
-		sheet.drawOutlinedTitle( g, $PilotSkill, R( tokenSize + '-token-ps'), Xwing.numberFont, 18, 2, Xwing.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $PilotSkill, R( tokenSize + '-token-ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 		// Draw the Primary Weapon Value
 		if( $ShipType == 'custom' ) {
@@ -552,7 +557,7 @@ function paintFront( g, diy, sheet ) {
 		} else {
 			pwv = getShipStat( $ShipType, 'pwv' );
 		}
-		sheet.drawOutlinedTitle( g, pwv, R( tokenSize + '-token-pwv' ), Xwing.numberFont, 14, 1, Xwing.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, pwv, R( tokenSize + '-token-pwv' ), CSkies.numberFont, 14, 1, CSkies.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 		// Draw the Agility Value
 		if( $ShipType == 'custom' ) {
@@ -560,7 +565,7 @@ function paintFront( g, diy, sheet ) {
 		} else {
 			agi = getShipStat( $ShipType, 'agi' );
 		}
-		sheet.drawOutlinedTitle( g, agi, R( tokenSize + '-token-agi' ), Xwing.numberFont, 14, 1, Xwing.getColor('agility'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, agi, R( tokenSize + '-token-agi' ), CSkies.numberFont, 14, 1, CSkies.getColor('agility'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 		// Draw the Hull Value
 		if( $ShipType == 'custom' ) {
@@ -568,7 +573,7 @@ function paintFront( g, diy, sheet ) {
 		} else {
 			hull = getShipStat( $ShipType, 'hull' );
 		}
-		sheet.drawOutlinedTitle( g, hull, R( tokenSize + '-token-hull' ), Xwing.numberFont, 14, 1, Xwing.getColor('hull'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, hull, R( tokenSize + '-token-hull' ), CSkies.numberFont, 14, 1, CSkies.getColor('hull'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 		// Draw the Shield Value
 		if( $ShipType == 'custom' ) {
@@ -576,10 +581,10 @@ function paintFront( g, diy, sheet ) {
 		} else {
 			shield = getShipStat( $ShipType, 'shield' );
 		}
-		sheet.drawOutlinedTitle( g, shield, R( tokenSize + '-token-shield' ), Xwing.numberFont, 14, 1, Xwing.getColor('shield'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, shield, R( tokenSize + '-token-shield' ), CSkies.numberFont, 14, 1, CSkies.getColor('shield'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 		// Draw fire arc lines
-		g.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+		g.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 		if( tokenSize == 'small' ) {
 			g.setStroke(normalStroke);
 			g.drawLine( 0, -3, Math.round(tokenWidth/2), Math.round(tokenHeight/2)-3 );
@@ -641,7 +646,7 @@ function paintFront( g, diy, sheet ) {
 			}
 
 			g.setPaint( Color.WHITE );
-			sheet.drawTitle(g, Xwing.textToShipChar( shipIcon ), region, Xwing.shipFont, fontSize, sheet.ALIGN_CENTER);
+			sheet.drawTitle(g, CSkies.textToShipChar( shipIcon ), region, CSkies.shipFont, fontSize, sheet.ALIGN_CENTER);
 	 	}
 
 		// Draw Actions
@@ -654,6 +659,7 @@ function paintFront( g, diy, sheet ) {
 			if( $$CustomEvadeAction.yesNo ) { actions.push( 'evade' ); }
 			if( $$CustomCloakAction.yesNo ) { actions.push( 'cloak' ); }
 			if( $$CustomSlamAction.yesNo ) { actions.push( 'slam' ); }
+			if( $$CustomDriftAction.yesNo ) { actions.push( 'drift' ); }
 		} else {
 			actions = getShipStat( $ShipType, 'actions' ).split( ',' );		
 		}
@@ -667,7 +673,7 @@ function paintFront( g, diy, sheet ) {
 				x = 287;
 				y = 290 - 60 * ( i + 1 );
 			}
-			sheet.drawOutlinedTitle( g, Xwing.textToIconChar( actions[i] ),  Region( x.toString() + ',' + y.toString() + ',100,100'), Xwing.iconFont, 15, 1, Xwing.getColor('agility'), Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, CSkies.textToIconChar( actions[i] ),  Region( x.toString() + ',' + y.toString() + ',100,100'), CSkies.iconFont, 15, 1, CSkies.getColor('agility'), Color.BLACK, sheet.ALIGN_CENTER, true);
 		}		
 
 		return;
@@ -676,7 +682,7 @@ function paintFront( g, diy, sheet ) {
 	//============== Front Sheet ==============
 	
 	//Draw template
-	imageTemplate =  'pilot-' + Xwing.getPrimaryFaction( $Affiliation ) + '-front-template';
+	imageTemplate =  'pilot-' + CSkies.getPrimaryFaction( $Affiliation ) + '-front-template';
 	sheet.paintImage( g, imageTemplate, 0, 0);
 	
 	if( $Affiliation == 'resistance' || $Affiliation == 'empire' || $Affiliation == 'firstorder' ) {
@@ -715,11 +721,11 @@ function paintFront( g, diy, sheet ) {
 			shipIcon = getShipStat( $ShipType, 'icon' );
 		}
 		g.setPaint( Color.WHITE );
-		sheet.drawTitle(g, Xwing.textToShipChar( shipIcon ), R( 'icon' ), Xwing.shipFont, 16, sheet.ALIGN_CENTER);
+		sheet.drawTitle(g, CSkies.textToShipChar( shipIcon ), R( 'icon' ), CSkies.shipFont, 16, sheet.ALIGN_CENTER);
   	}
   
 	// Draw the Pilot Skill
-	sheet.drawOutlinedTitle( g, $PilotSkill, R('ps'), Xwing.numberFont, 18, 2, Xwing.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, $PilotSkill, R('ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Primary Weapon Symbol
 	if( $ShipType == 'custom' ) {
@@ -734,7 +740,7 @@ function paintFront( g, diy, sheet ) {
 	} else {
 		pwv = getShipStat( $ShipType, 'pwv' );
 	}
-	sheet.drawOutlinedTitle( g, pwv, R( 'pwv' ), Xwing.numberFont, 14, 1, Xwing.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, pwv, R( 'pwv' ), CSkies.numberFont, 14, 1, CSkies.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Agility Value
 	if( $ShipType == 'custom' ) {
@@ -742,7 +748,7 @@ function paintFront( g, diy, sheet ) {
 	} else {
 		agi = getShipStat( $ShipType, 'agi' );
 	}
-	sheet.drawOutlinedTitle( g, agi, R( 'agi' ), Xwing.numberFont, 14, 1, Xwing.getColor('agility'), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, agi, R( 'agi' ), CSkies.numberFont, 14, 1, CSkies.getColor('agility'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Hull Value
 	if( $ShipType == 'custom' ) {
@@ -750,7 +756,7 @@ function paintFront( g, diy, sheet ) {
 	} else {
 		hull = getShipStat( $ShipType, 'hull' );
 	}
-	sheet.drawOutlinedTitle( g, hull, R( 'hull' ), Xwing.numberFont, 14, 1, Xwing.getColor('hull'), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, hull, R( 'hull' ), CSkies.numberFont, 14, 1, CSkies.getColor('hull'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Shield Value
 	if( $ShipType == 'custom' ) {
@@ -758,7 +764,7 @@ function paintFront( g, diy, sheet ) {
 	} else {
 		shield = getShipStat( $ShipType, 'shield' );
 	}
-	sheet.drawOutlinedTitle( g, shield, R( 'shield' ), Xwing.numberFont, 14, 1, Xwing.getColor('shield'), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, shield, R( 'shield' ), CSkies.numberFont, 14, 1, CSkies.getColor('shield'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Squad Point Cost
 	uniquePilotCost = 0;
@@ -769,7 +775,7 @@ function paintFront( g, diy, sheet ) {
 		baseCost = getShipStat( $ShipType, 'basecost' );
 	}
 	totalCost = parseInt( baseCost ) + parseInt( $PilotSkill ) + parseInt( $PointAdjuster ) + uniquePilotCost;
-	sheet.drawOutlinedTitle( g, totalCost.toString(), R( 'cost' ), Xwing.numberFont, 10, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, totalCost.toString(), R( 'cost' ), CSkies.numberFont, 10, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
 	
 	// Draw the Pilot Ability/Flavour Text
 	if( $$UniquePilot.yesNo ) {
@@ -790,6 +796,7 @@ function paintFront( g, diy, sheet ) {
 		if( $$CustomEvadeAction.yesNo ) { actions.push( 'evade' ); }
 		if( $$CustomCloakAction.yesNo ) { actions.push( 'cloak' ); }
 		if( $$CustomSlamAction.yesNo ) { actions.push( 'slam' ); }
+		if( $$CustomDriftAction.yesNo ) { actions.push( 'drift' ); }
 	} else {
 		actions = getShipStat( $ShipType, 'actions' ).split( ',' );		
 	}	
@@ -798,7 +805,7 @@ function paintFront( g, diy, sheet ) {
 		x = 202 + 472 / (actions.length + 1) * ( i + 1 );
 		y = 780;
 		g.setPaint( Color.BLACK );
-		sheet.drawTitle(g, Xwing.textToIconChar( actions[i] ), Region( x.toString() + ',' + y.toString() + ',100,100'), Xwing.iconFont, 15, sheet.ALIGN_CENTER);
+		sheet.drawTitle(g, CSkies.textToIconChar( actions[i] ), Region( x.toString() + ',' + y.toString() + ',100,100'), CSkies.iconFont, 15, sheet.ALIGN_CENTER);
 	}
 
 	// Draw Upgrade Bar
@@ -828,7 +835,7 @@ function paintFront( g, diy, sheet ) {
 		y = 951;
 		g.setPaint( Color.BLACK );
 		g.fillOval( x+2, y+2, 45, 45 );
-		sheet.drawOutlinedTitle( g, Xwing.textToIconChar( upgrades[i] ), Region( x.toString() + ',' + y.toString() + ',50,50'), Xwing.iconFont, 15, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, CSkies.textToIconChar( upgrades[i] ), Region( x.toString() + ',' + y.toString() + ',50,50'), CSkies.iconFont, 15, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 
 	// Draw Legal text
@@ -836,7 +843,7 @@ function paintFront( g, diy, sheet ) {
 }
 
 function paintBack( g, diy, sheet ) {
-	imageTemplate = 'pilot-' + Xwing.getPrimaryFaction( $Affiliation ) + '-back-template';
+	imageTemplate = 'pilot-' + CSkies.getPrimaryFaction( $Affiliation ) + '-back-template';
 	sheet.paintImage( g, imageTemplate, 0, 0);	
 	if( $Affiliation == 'resistance' || $Affiliation == 'firstorder' ) {
 		imageTemplate = 'pilot-' + $Affiliation + '-back-template';
@@ -866,6 +873,7 @@ function onClear() {
 	$CustomEvadeAction = 'no';
 	$CustomCloakAction = 'no';
 	$CustomSlamAction = 'no';
+	$CustomDriftAction = 'no';
 	$CustomUpgrade1 = '-';
 	$CustomUpgrade2 = '-';
 	$CustomUpgrade3 = '-';

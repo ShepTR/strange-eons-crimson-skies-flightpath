@@ -14,12 +14,12 @@ importClass( arkham.component.DefaultPortrait );
 if( sourcefile == 'Quickscript' ) {
 	useLibrary( 'project:CrimsonSkies/resources/crimson-skies/test-lib.js' );
 }
-const Xwing = Eons.namedObjects.Xwing;
+const CSkies = Eons.namedObjects.CSkies;
 
 
 function create( diy ) {
 	diy.version = 2;
-	diy.extensionName = 'Xwing.seext';
+	diy.extensionName = 'CSkies.seext';
 	diy.faceStyle = FaceStyle.TWO_FACES;
 	diy.transparentFaces = false;
 	diy.variableSizedFaces = false;
@@ -197,7 +197,7 @@ function createInterface( diy, editor ) {
 	}
 
 	
-	mainPanel.addToEditor( editor, @xw_info, null, null, 0 );
+	mainPanel.addToEditor( editor, @cs_info, null, null, 0 );
 	editor.addFieldPopulationListener( actionFunction );
 	bindings.bind();
 		
@@ -209,11 +209,11 @@ function createInterface( diy, editor ) {
 
 
 function createFrontPainter( diy, sheet ) {
-	nameBox = Xwing.headingBox( sheet, 12 );
+	nameBox = CSkies.headingBox( sheet, 12 );
 	
-	upgradeTextBox = Xwing.abilityBox( sheet, 7 );
+	upgradeTextBox = CSkies.abilityBox( sheet, 7 );
 	
-	upgradeIconBox = Xwing.abilityBox( sheet, 14 );
+	upgradeIconBox = CSkies.abilityBox( sheet, 14 );
 }
 
 function createBackPainter( diy, sheet ) {
@@ -232,14 +232,14 @@ function paintFront( g, diy, sheet ) {
 	if( $$SecondaryWeapon.yesNo ) {
 		if ( $EnergyLimit == '-' ) {
 			sheet.paintImage( g, 'upgrade-attack-template', 0, 0 );
-			sheet.drawOutlinedTitle( g, $AttackValue, R( 'upper-attribute' ), Xwing.numberFont, 14, 1, Xwing.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
-			sheet.drawOutlinedTitle( g, $Range, R('upper-range'), Xwing.numberFont, 8, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, $AttackValue, R( 'upper-attribute' ), CSkies.numberFont, 14, 1, CSkies.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, $Range, R('upper-range'), CSkies.numberFont, 8, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
 			nameBox.draw( g, R('short-name') );
 		} else {
 			sheet.paintImage( g, 'upgrade-energy-attack-template', 0, 0 );
-			sheet.drawOutlinedTitle( g, $EnergyLimit, R( 'upper-attribute' ), Xwing.numberFont, 14, 1, Xwing.getColor('energy'), Color.BLACK, sheet.ALIGN_CENTER, true);
-			sheet.drawOutlinedTitle( g, $AttackValue, R( 'lower-attribute' ), Xwing.numberFont, 14, 1, Xwing.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
-			sheet.drawOutlinedTitle( g, $Range, R('lower-range'), Xwing.numberFont, 8, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, $EnergyLimit, R( 'upper-attribute' ), CSkies.numberFont, 14, 1, CSkies.getColor('energy'), Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, $AttackValue, R( 'lower-attribute' ), CSkies.numberFont, 14, 1, CSkies.getColor('attack'), Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, $Range, R('lower-range'), CSkies.numberFont, 8, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
 			nameBox.draw( g, R('short-name') );
 		}
 	} else {
@@ -248,7 +248,7 @@ function paintFront( g, diy, sheet ) {
 			nameBox.draw( g, R('name') );
 		} else {
 			sheet.paintImage( g, 'upgrade-energy-template', 0, 0 );
-			sheet.drawOutlinedTitle( g, $EnergyLimit, R( 'upper-attribute' ), Xwing.numberFont, 14, 1, Xwing.getColor('energy'), Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, $EnergyLimit, R( 'upper-attribute' ), CSkies.numberFont, 14, 1, CSkies.getColor('energy'), Color.BLACK, sheet.ALIGN_CENTER, true);
 			nameBox.draw( g, R('short-name') );
 		}
 	}
@@ -335,7 +335,7 @@ function paintFront( g, diy, sheet ) {
 	}
 
 	// Draw the Point Cost
-	sheet.drawOutlinedTitle( g, $PointCost, R('cost'), Xwing.numberFont, 8, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, $PointCost, R('cost'), CSkies.numberFont, 8, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
 
 	// Draw Legal text
 	sheet.paintImage( g, 'upgrade-legal', 'upgrade-legal-region');

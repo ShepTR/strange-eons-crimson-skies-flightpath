@@ -19,7 +19,7 @@ importClass( arkham.component.DefaultPortrait );
 if( sourcefile == 'Quickscript' ) {
 	useLibrary( 'project:CrimsonSkies/resources/crimson-skies/test-lib.js' );
 }
-const Xwing = Eons.namedObjects.Xwing;
+const CSkies = Eons.namedObjects.CSkies;
 
 portraits = [];
 
@@ -42,7 +42,7 @@ function getPortrait( index ) {
 
 function create( diy ) {
 	diy.version = 2;
-	diy.extensionName = 'Xwing.seext';
+	diy.extensionName = 'CSkies.seext';
 	diy.faceStyle = FaceStyle.SIX_FACES;
 	diy.transparentFaces = true;
 	diy.variableSizedFaces = true;
@@ -730,17 +730,17 @@ function createInterface( diy, editor ) {
 function createFrontPainter( diy, sheet ) {
 	//============== Ship Token ==============
 	if( sheet.sheetIndex == 4 ) {
-		tokenNameBox = Xwing.headingBox( sheet, 6.8 );
+		tokenNameBox = CSkies.headingBox( sheet, 6.8 );
 		return;
 	}
 	
 	//============== Front Sheet ==============
 	if( sheet.sheetIndex != 4 ) {
-		nameBox = Xwing.headingBox( sheet, 12.5 );
-		epicBox = Xwing.headingBox( sheet, 12.5 );
+		nameBox = CSkies.headingBox( sheet, 12.5 );
+		epicBox = CSkies.headingBox( sheet, 12.5 );
 		
-		abilityTextBox = Xwing.abilityBox( sheet, 8 );
-		flavorTextBox = Xwing.flavorBox( sheet, 8 );
+		abilityTextBox = CSkies.abilityBox( sheet, 8 );
+		flavorTextBox = CSkies.flavorBox( sheet, 8 );
 			
 		legalBox = markupBox( sheet );
 		legalBox.defaultStyle = new TextStyle(
@@ -757,17 +757,17 @@ function createFrontPainter( diy, sheet ) {
 function createBackPainter( diy, sheet ) {
 	//============== Ship Token ==============
 	if( sheet.sheetIndex == 5 ) {
-		tokenNameBox = Xwing.headingBox( sheet, 6.8 );
+		tokenNameBox = CSkies.headingBox( sheet, 6.8 );
 		return;
 	}
 	
 	//============== Front Sheet ==============
 	if( sheet.sheetIndex != 5 ) {
-		nameBox = Xwing.headingBox( sheet, 12.5 );
-		epicBox = Xwing.headingBox( sheet, 12.5 );
+		nameBox = CSkies.headingBox( sheet, 12.5 );
+		epicBox = CSkies.headingBox( sheet, 12.5 );
 		
-		abilityTextBox = Xwing.abilityBox( sheet, 8 );
-		flavorTextBox = Xwing.flavorBox( sheet, 8 );
+		abilityTextBox = CSkies.abilityBox( sheet, 8 );
+		flavorTextBox = CSkies.flavorBox( sheet, 8 );
 			
 		legalBox = markupBox( sheet );
 		legalBox.defaultStyle = new TextStyle(
@@ -809,7 +809,7 @@ function paintBack( g, diy, sheet ) {
 		if( $$DoubleSection.yesNo ) {
 			paintCardFaceComponents( g, diy, sheet, 'fore', 'back');
 		} else {
-			imageTemplate = 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-back-template';
+			imageTemplate = 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-back-template';
 			sheet.paintImage( g, imageTemplate, 0, 0);
 			if( $Affiliation == 'resistance' || $Affiliation == 'firstorder' ) {
 				imageTemplate = 'huge-' + $Affiliation + '-back-template';
@@ -841,7 +841,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 	portraits[sheet.sheetIndex].paint( g, target );
 	
 	//Draw template
-	imageTemplate = 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-' + section + '-template';
+	imageTemplate = 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-' + section + '-template';
 	sheet.paintImage( g, imageTemplate, 0, 0);
 	if( $Affiliation == 'resistance' || $Affiliation == 'empire' || $Affiliation == 'firstorder' ) {
 		imageTemplate = 'huge-' + $Affiliation + '-front-template';
@@ -869,7 +869,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 	portraits[4].paint( g, target );
 	
  	// Draw the Pilot Skill
-	sheet.drawOutlinedTitle( g, $PilotSkill, R( section, 'ps' ), Xwing.numberFont, 18, 2, Xwing.getColor( 'skill' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, $PilotSkill, R( section, 'ps' ), CSkies.numberFont, 18, 2, CSkies.getColor( 'skill' ), Color.BLACK, sheet.ALIGN_CENTER, true);
  		
 	// Draw the Primary Weapon/Energy Symbol, Value and Range
 	if(	section == 'single' ) {
@@ -881,7 +881,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 			attributeValue = $ForeCrippledEnergy;
 		}
 		range = 'no';
-		attributeColor = Xwing.getColor( 'energy' );
+		attributeColor = CSkies.getColor( 'energy' );
 		attributeRegion = R( 'fore', 'attribute' );
 	} else if( section == 'fore' && ( $Location == 'energy-attack' || $Location == 'energy-none' ) ) {
 		symbolTemplate = 'huge-attribute-symbol-energy-template';
@@ -892,7 +892,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 			attributeValue = $ForeCrippledEnergy;
 		}
 		range = 'no';
-		attributeColor = Xwing.getColor( 'energy' );
+		attributeColor = CSkies.getColor( 'energy' );
 		attributeRegion = R( 'fore', 'attribute' );
  	} else if( section == 'aft' && ( $Location == 'attack-energy' || $Location == 'none-energy' ) ) {
 		symbolTemplate = 'huge-attribute-symbol-energy-template';
@@ -903,7 +903,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 			attributeValue = $AftCrippledEnergy;
 		}
 		range = 'no';
-		attributeColor = Xwing.getColor( 'energy' );
+		attributeColor = CSkies.getColor( 'energy' );
 		attributeRegion = R( 'aft', 'attribute' );
 	} else if( section == 'fore' && $Location == 'attack-energy' ) {
 		if( $$ForeTurret.yesNo ) {
@@ -919,10 +919,10 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 			attributeValue = $ForeCrippledPwv;
 			range = $ForeCrippledRange;
 		}
-		attributeColor = Xwing.getColor( 'attack' );
+		attributeColor = CSkies.getColor( 'attack' );
 		attributeRegion = R( 'fore', 'attribute' );
 		rangeRegion = R( 'fore', 'range' );
-		rangeBoxTemplate = 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-fore-range-box';
+		rangeBoxTemplate = 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-fore-range-box';
 		rangeBoxRegion = 'huge-fore-range-box-region';
 	} else if( section == 'aft' && $Location == 'energy-attack' ) {
 		if( $$AftTurret.yesNo ) {
@@ -938,32 +938,32 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 			attributeValue = $AftCrippledPwv;
 			range = $AftCrippledRange;
 		}
-		attributeColor = Xwing.getColor( 'attack' );
+		attributeColor = CSkies.getColor( 'attack' );
 		attributeRegion = R( 'aft', 'attribute');
 		rangeRegion = R( 'aft', 'range' );
-		rangeBoxTemplate = 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-aft-range-box';
+		rangeBoxTemplate = 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-aft-range-box';
 		rangeBoxRegion = 'huge-aft-range-box-region';
 	} else if( section == 'fore' && $Location == 'none-energy' ) {
 		symbolTemplate = 'huge-attribute-symbol-attack-front-template';
  		symbolRegion = 'huge-fore-attribute-symbol-region';
  		attributeValue = '-';
 		range = 'no';
- 		attributeColor = Xwing.getColor( 'attack' );
+ 		attributeColor = CSkies.getColor( 'attack' );
  		attributeRegion = R( 'fore', 'attribute' );		
 	} else if( section == 'aft' && $Location == 'energy-none' ) {
 		symbolTemplate = 'huge-attribute-symbol-attack-front-template';
  		symbolRegion = 'huge-aft-attribute-symbol-region';
  		attributeValue = '-';
 		range = 'no';
- 		attributeColor = Xwing.getColor( 'attack' );
+ 		attributeColor = CSkies.getColor( 'attack' );
  		attributeRegion = R( 'aft', 'attribute' );		
 	}
 	if( range != 'no' ) {
 		sheet.paintImage( g, rangeBoxTemplate, rangeBoxRegion);
-		sheet.drawOutlinedTitle( g, range, rangeRegion, Xwing.numberFont, 8, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, range, rangeRegion, CSkies.numberFont, 8, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 	sheet.paintImage( g, symbolTemplate, symbolRegion );
-	sheet.drawOutlinedTitle( g, attributeValue, attributeRegion, Xwing.numberFont, 14, 1, attributeColor, Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, attributeValue, attributeRegion, CSkies.numberFont, 14, 1, attributeColor, Color.BLACK, sheet.ALIGN_CENTER, true);
 	
 	// Draw the Agility Value
 	if( ( section == 'fore' || section == 'single' ) && side == 'back' ) {
@@ -979,7 +979,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 		agility = '0';
 		agilityRegion = R( 'aft', 'agi' );		
 	}
-	sheet.drawOutlinedTitle( g, agility, agilityRegion, Xwing.numberFont, 14, 1, Xwing.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, agility, agilityRegion, CSkies.numberFont, 14, 1, CSkies.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Hull Value
 	if( ( section == 'fore' || section == 'single' ) && side == 'back' ) {
@@ -995,7 +995,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 		hull = $AftHull;
 		hullRegion = R( 'aft', 'hull' );		
 	}
-	sheet.drawOutlinedTitle( g, hull, hullRegion, Xwing.numberFont, 14, 1, Xwing.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, hull, hullRegion, CSkies.numberFont, 14, 1, CSkies.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Shield Value
 	if( ( section == 'fore' || section == 'single' ) && side == 'back' ) {
@@ -1011,7 +1011,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 		shield = $AftShield;
 		shieldRegion = R( 'aft', 'shield' );		
 	}
-	sheet.drawOutlinedTitle( g, shield, shieldRegion, Xwing.numberFont, 14, 1, Xwing.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, shield, shieldRegion, CSkies.numberFont, 14, 1, CSkies.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	
 	// Draw the Squad Point Cost
 	if( side == 'back' ) {
@@ -1021,7 +1021,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 	} else {
 		cost = $AftCost;
 	}
-	sheet.drawOutlinedTitle( g, cost, R( 'fore', 'cost' ), Xwing.numberFont, 10, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
+	sheet.drawOutlinedTitle( g, cost, R( 'fore', 'cost' ), CSkies.numberFont, 10, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
 	
 	// Draw Action Bar
 	if( side == 'front' ) {
@@ -1046,7 +1046,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 			x = xbias + 472 / (actions.length + 1) * ( i + 1 );
 			y = 780;
 			g.setPaint( Color.BLACK );
-			sheet.drawTitle(g, Xwing.textToIconChar( actions[i] ), Region( x.toString() + ',' + y.toString() + ',100,100'), Xwing.iconFont, 15, sheet.ALIGN_CENTER);
+			sheet.drawTitle(g, CSkies.textToIconChar( actions[i] ), Region( x.toString() + ',' + y.toString() + ',100,100'), CSkies.iconFont, 15, sheet.ALIGN_CENTER);
 		}
 	}
 	
@@ -1079,7 +1079,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 		y = 951;
 		g.setPaint( Color.BLACK );
 		g.fillOval( x+2, y+2, 45, 45 );
-		sheet.drawOutlinedTitle( g, Xwing.textToIconChar( upgrades[i] ), Region( x.toString() + ',' + y.toString() + ',50,50'), Xwing.iconFont, 15, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, CSkies.textToIconChar( upgrades[i] ), Region( x.toString() + ',' + y.toString() + ',50,50'), CSkies.iconFont, 15, 1, Color.WHITE, Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 
 	// Draw Legal text
@@ -1087,7 +1087,7 @@ function paintCardFaceComponents( g, diy, sheet, section, side) {
 	
 	// Draw Crippled Overlay
 	if( side == 'back' ) {
-		imageTemplate = 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-' + section + '-action-overlay-template';
+		imageTemplate = 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-' + section + '-action-overlay-template';
 		sheet.paintImage( g, imageTemplate, 0, 0);
 		imageTemplate = 'huge-overlay-' + section + '-template';
 		sheet.paintImage( g, imageTemplate, 0, 0);
@@ -1211,7 +1211,7 @@ function paintTokenComponents( 	g, diy, sheet) {
 	// Draw fore shaded fire arc area
 	fireArcArea = ImageUtils.create( tokenWidth, tokenHeight, true );
 	gTemp = fireArcArea.createGraphics();
-	gTemp.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+	gTemp.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 	if( $ForeArc == 'broadside' ) {
 		gTemp.fillPolygon( [0, Math.round(tokenWidth/2), 0], [0, Math.round(tokenBasicUnit), Math.round(tokenBasicUnit*2)], 3 );
 		gTemp.fillPolygon( [tokenWidth, Math.round(tokenWidth/2), tokenWidth], [0, Math.round(tokenBasicUnit), Math.round(tokenBasicUnit*2)], 3 );
@@ -1243,7 +1243,7 @@ function paintTokenComponents( 	g, diy, sheet) {
 	
 	// Draw turret circle
 	if( ( tokenSize == 'double' && $Location == 'attack-energy' && $$ForeTurret.yesNo ) ) {
-		g.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+		g.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 		g.setStroke(thinStroke);
 		diameter = 370;
 		g.drawArc( Math.round( (tokenWidth-diameter) /2 ), Math.round( tokenBasicUnit-diameter/2 ), diameter, diameter, 7, 322 );
@@ -1252,7 +1252,7 @@ function paintTokenComponents( 	g, diy, sheet) {
 		g.drawPolyline( [ 629, 592, 643, 694, 657 ], [ 452, 452, 531, 452, 452 ], 5 );
 		g.drawPolyline( [ 613.5, 616, 633, 631 ], [ 546, 541, 565, 568 ], 4 );
 	} else if ( ( tokenSize == 'double' && $Location == 'energy-attack'&& $$AftTurret.yesNo ) ) {
-		g.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+		g.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 		g.setStroke(thinStroke);
 		diameter = 370;
 		g.drawArc( Math.round( (tokenWidth-diameter) /2 ), Math.round(tokenHeight-tokenBasicUnit-diameter/2), diameter, diameter, 7, 322 );
@@ -1264,9 +1264,9 @@ function paintTokenComponents( 	g, diy, sheet) {
 	
 	// Draw stat panel
 	if( tokenSize == 'double' ) {
-		sheet.paintImage( g, 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-fore-panel-template', 47, 0);
+		sheet.paintImage( g, 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-fore-panel-template', 47, 0);
 	}
-	sheet.paintImage( g, 'huge-' + Xwing.getPrimaryFaction( $Affiliation ) + '-aft-panel-template', 47, tokenHeight-230);
+	sheet.paintImage( g, 'huge-' + CSkies.getPrimaryFaction( $Affiliation ) + '-aft-panel-template', 47, tokenHeight-230);
 
 	// Draw the name	
 	if( tokenSize == 'double' ) {
@@ -1296,65 +1296,65 @@ function paintTokenComponents( 	g, diy, sheet) {
 
 	// Draw the Pilot Skill
 	if( tokenSize == 'double' ) {
-		sheet.drawOutlinedTitle( g, $PilotSkill, R( 'fore' , 'token-ps'), Xwing.numberFont, 18, 2, Xwing.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
-		sheet.drawOutlinedTitle( g, $PilotSkill, R( 'aft', 'token-ps'), Xwing.numberFont, 18, 2, Xwing.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $PilotSkill, R( 'fore' , 'token-ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $PilotSkill, R( 'aft', 'token-ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
 	} else {
-		sheet.drawOutlinedTitle( g, $PilotSkill, R( 'single', 'token-ps'), Xwing.numberFont, 18, 2, Xwing.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $PilotSkill, R( 'single', 'token-ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 	
 	// Draw the Primary Weapon/Energy Value
 	if( tokenSize == 'double' ) {
 		if(	$Location == 'attack-energy' ) {
 			attributeForeValue = $ForePwv;
-			attributeForeColor = Xwing.getColor( 'attack' );
+			attributeForeColor = CSkies.getColor( 'attack' );
 			attributeAftValue = $AftEnergy;
-			attributeAftColor = Xwing.getColor( 'energy' );
+			attributeAftColor = CSkies.getColor( 'energy' );
 		} else if ( $Location == 'energy-attack' ) {
 			attributeForeValue = $ForeEnergy;
-			attributeForeColor = Xwing.getColor( 'energy' );
+			attributeForeColor = CSkies.getColor( 'energy' );
 			attributeAftValue = $AftPwv;
-			attributeAftColor = Xwing.getColor( 'attack' );
+			attributeAftColor = CSkies.getColor( 'attack' );
 		} else if ( $Location == 'energy-none' ) {
 			attributeForeValue = $ForeEnergy;
-			attributeForeColor = Xwing.getColor( 'energy' );
+			attributeForeColor = CSkies.getColor( 'energy' );
 			attributeAftValue = '-';
-			attributeAftColor = Xwing.getColor( 'attack' );
+			attributeAftColor = CSkies.getColor( 'attack' );
 		} else if ( $Location == 'none-energy' ) {
 			attributeForeValue = '-';
-			attributeForeColor = Xwing.getColor( 'attack' );
+			attributeForeColor = CSkies.getColor( 'attack' );
 			attributeAftValue = $AftEnergy;
-			attributeAftColor = Xwing.getColor( 'energy' );
+			attributeAftColor = CSkies.getColor( 'energy' );
 		}
-		sheet.drawOutlinedTitle( g, attributeForeValue, R( 'fore', 'token-attribute'), Xwing.numberFont, 14, 1, attributeForeColor, Color.BLACK, sheet.ALIGN_CENTER, true);
-		sheet.drawOutlinedTitle( g, attributeAftValue, R( 'aft', 'token-attribute'), Xwing.numberFont, 14, 1, attributeAftColor, Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, attributeForeValue, R( 'fore', 'token-attribute'), CSkies.numberFont, 14, 1, attributeForeColor, Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, attributeAftValue, R( 'aft', 'token-attribute'), CSkies.numberFont, 14, 1, attributeAftColor, Color.BLACK, sheet.ALIGN_CENTER, true);
 	} else {
 		attributeValue = $ForeEnergy;
-		attributeColor = Xwing.getColor( 'energy' );
-		sheet.drawOutlinedTitle( g, attributeValue, R( 'single', 'token-attribute'), Xwing.numberFont, 14, 1, attributeColor, Color.BLACK, sheet.ALIGN_CENTER, true);
+		attributeColor = CSkies.getColor( 'energy' );
+		sheet.drawOutlinedTitle( g, attributeValue, R( 'single', 'token-attribute'), CSkies.numberFont, 14, 1, attributeColor, Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 
 	// Draw the Agility Value
 	if( tokenSize == 'double' ) {
-		sheet.drawOutlinedTitle( g, '0', R( 'fore', 'token-agi'), Xwing.numberFont, 14, 1, Xwing.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
-		sheet.drawOutlinedTitle( g, '0', R( 'aft', 'token-agi'), Xwing.numberFont, 14, 1, Xwing.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, '0', R( 'fore', 'token-agi'), CSkies.numberFont, 14, 1, CSkies.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, '0', R( 'aft', 'token-agi'), CSkies.numberFont, 14, 1, CSkies.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	} else {
-		sheet.drawOutlinedTitle( g, '0', R( 'single', 'token-agi'), Xwing.numberFont, 14, 1, Xwing.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, '0', R( 'single', 'token-agi'), CSkies.numberFont, 14, 1, CSkies.getColor( 'agility' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 
 	// Draw the Hull Value
 	if( tokenSize == 'double' ) {
-		sheet.drawOutlinedTitle( g, $ForeHull, R( 'fore', 'token-hull'), Xwing.numberFont, 14, 1, Xwing.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
-		sheet.drawOutlinedTitle( g, $AftHull, R( 'aft', 'token-hull'), Xwing.numberFont, 14, 1, Xwing.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $ForeHull, R( 'fore', 'token-hull'), CSkies.numberFont, 14, 1, CSkies.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $AftHull, R( 'aft', 'token-hull'), CSkies.numberFont, 14, 1, CSkies.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	} else {
-		sheet.drawOutlinedTitle( g, $ForeHull, R( 'single', 'token-hull'), Xwing.numberFont, 14, 1, Xwing.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $ForeHull, R( 'single', 'token-hull'), CSkies.numberFont, 14, 1, CSkies.getColor( 'hull' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 
 	// Draw the Shield Value
 	if( tokenSize == 'double' ) {
-		sheet.drawOutlinedTitle( g, $ForeShield, R( 'fore', 'token-shield'), Xwing.numberFont, 14, 1, Xwing.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
-		sheet.drawOutlinedTitle( g, $AftShield, R( 'aft', 'token-shield'), Xwing.numberFont, 14, 1, Xwing.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $ForeShield, R( 'fore', 'token-shield'), CSkies.numberFont, 14, 1, CSkies.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $AftShield, R( 'aft', 'token-shield'), CSkies.numberFont, 14, 1, CSkies.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	} else {
-		sheet.drawOutlinedTitle( g, $ForeShield, R( 'single', 'token-shield'), Xwing.numberFont, 14, 1, Xwing.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, $ForeShield, R( 'single', 'token-shield'), CSkies.numberFont, 14, 1, CSkies.getColor( 'shield' ), Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 	
 	// Draw center line
@@ -1363,7 +1363,7 @@ function paintTokenComponents( 	g, diy, sheet) {
 	g.drawPolyline( [0, tokenWidth], [Math.round(tokenHeight/2), Math.round(tokenHeight/2)], 2 );
 
 	// Draw fire arc lines
-	g.setPaint( Xwing.getColor( Xwing.getPrimaryFaction( $Affiliation ) ) );
+	g.setPaint( CSkies.getColor( CSkies.getPrimaryFaction( $Affiliation ) ) );
 	g.setStroke(normalStroke);
 	if( $ForeArc == 'broadside' ) {
 		g.drawPolyline( [0, Math.round(tokenWidth/2), 0], [0, Math.round(tokenBasicUnit), Math.round(tokenBasicUnit*2)], 3 );
@@ -1407,7 +1407,7 @@ function paintTokenComponents( 	g, diy, sheet) {
 		} else {
 			y = ( 1699 - 25 * actions.length ) + ( 140 + 50 * actions.length ) / (actions.length + 1) * ( actions.length - i );
 		}
-		sheet.drawOutlinedTitle( g, Xwing.textToIconChar( actions[i] ),  Region( x.toString() + ',' + y.toString() + ',100,100'), Xwing.iconFont, 15, 1, Xwing.getColor('imperial'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		sheet.drawOutlinedTitle( g, CSkies.textToIconChar( actions[i] ),  Region( x.toString() + ',' + y.toString() + ',100,100'), CSkies.iconFont, 15, 1, CSkies.getColor('imperial'), Color.BLACK, sheet.ALIGN_CENTER, true);
 	}
 	if( tokenSize == 'double' ) {
 		actions = [];
@@ -1419,7 +1419,7 @@ function paintTokenComponents( 	g, diy, sheet) {
 		for( let i = 0; i < actions.length; ++i ) {
 			// Get a nice distribution of the actions
 			y = ( 2054 - 25 * actions.length ) + ( 140 + 50 * actions.length ) / (actions.length + 1) * ( actions.length - i );
-			sheet.drawOutlinedTitle( g, Xwing.textToIconChar( actions[i] ),  Region( x.toString() + ',' + y.toString() + ',100,100'), Xwing.iconFont, 15, 1, Xwing.getColor('imperial'), Color.BLACK, sheet.ALIGN_CENTER, true);
+			sheet.drawOutlinedTitle( g, CSkies.textToIconChar( actions[i] ),  Region( x.toString() + ',' + y.toString() + ',100,100'), CSkies.iconFont, 15, 1, CSkies.getColor('imperial'), Color.BLACK, sheet.ALIGN_CENTER, true);
 		}
 	}
 

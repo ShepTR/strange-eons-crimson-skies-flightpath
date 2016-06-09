@@ -69,12 +69,12 @@ function initialize() {
 		Language.getGame().addStrings( 'crimson-skies/text/game' );
 		Language.getGame().addStrings( 'crimson-skies/text/common' );
 
-		// create the Xwing named object
+		// create the CSkies named object
 		useLibrary( 'res://crimson-skies/namedobj.js' );
-		const Xwing = Eons.namedObjects.Xwing;
+		const CSkies = Eons.namedObjects.CSkies;
 
 		// register Talisman as a game supported by Strange Eons
-		Game.register('CS', @cs_game, #cs_game,	ImageUtils.get( 'crimson-skies/plugin.png' ), template);
+		Game.register('CS', @cs_game, #cs_game,	ImageUtils.get( 'crimson-skies/plugin.jpg' ), template);
 				
 		// now that the game is regsietered, we can add the
 		// default settings to use for new cards

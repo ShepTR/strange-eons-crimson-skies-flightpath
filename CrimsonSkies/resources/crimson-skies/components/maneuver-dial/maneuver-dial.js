@@ -15,11 +15,11 @@ importClass( arkham.component.DefaultPortrait );
 if( sourcefile == 'Quickscript' ) {
 	useLibrary( 'project:CrimsonSkies/resources/crimson-skies/test-lib.js' );
 }
-const Xwing = Eons.namedObjects.Xwing;
+const CSkies = Eons.namedObjects.CSkies;
 
 function create( diy ) {
 	diy.version = 2;
-	diy.extensionName = 'Xwing.seext';
+	diy.extensionName = 'CSkies.seext';
 	diy.faceStyle = FaceStyle.FOUR_FACES;
 	diy.transparentFaces = true;
 	diy.variableSizedFaces = false;
@@ -453,7 +453,7 @@ function createInterface( diy, editor ) {
 	}
 	
 	diy.setNameField( nameField );
-	mainPanel.addToEditor( editor, @xw_info, null, null, 0 );
+	mainPanel.addToEditor( editor, @cs_info, null, null, 0 );
 	editor.addFieldPopulationListener( actionFunction );
 	bindings.bind();
 	
@@ -463,7 +463,7 @@ function createInterface( diy, editor ) {
 
 function createFrontPainter( diy, sheet ) {
 	if( sheet.sheetIndex == 0 ) {
-		shiptypeBox = Xwing.headingBox( sheet, 12.5 );
+		shiptypeBox = CSkies.headingBox( sheet, 12.5 );
 	}
 }
 
@@ -472,7 +472,7 @@ function createBackPainter( diy, sheet ) {}
 function paintFront( g, diy, sheet ) {
 	if( sheet.sheetIndex == 0 ) {
 		//============== Upper Front ==============
-		imageTemplate =  'maneuver-' + Xwing.getPrimaryFaction( $Affiliation ) + '-upper-front-template';
+		imageTemplate =  'maneuver-' + CSkies.getPrimaryFaction( $Affiliation ) + '-upper-front-template';
 		sheet.paintImage( g, imageTemplate, 0, 0);
 
 		if( $Affiliation == 'resistance' || $Affiliation == 'firstorder' ) {
@@ -485,7 +485,7 @@ function paintFront( g, diy, sheet ) {
 		
 	} else {
 		//============== Lower Front ==============
-		imageTemplate =  'maneuver-' + Xwing.getPrimaryFaction( $Affiliation ) + '-lower-front-template';
+		imageTemplate =  'maneuver-' + CSkies.getPrimaryFaction( $Affiliation ) + '-lower-front-template';
 		sheet.paintImage( g, imageTemplate, 0, 0);
 		
 		maneuverArray = [];
@@ -583,11 +583,11 @@ function paintFront( g, diy, sheet ) {
 function paintBack( g, diy, sheet ) {
 	if( sheet.sheetIndex == 1 ) {
 		//============== Upper Back ==============
-		imageTemplate =  'maneuver-' + Xwing.getPrimaryFaction( $Affiliation ) + '-upper-back-template';
+		imageTemplate =  'maneuver-' + CSkies.getPrimaryFaction( $Affiliation ) + '-upper-back-template';
 		sheet.paintImage( g, imageTemplate, 0, 0);
 	} else {
 		//============== Lower Back ==============
-		imageTemplate =  'maneuver-' + Xwing.getPrimaryFaction( $Affiliation ) + '-lower-back-template';
+		imageTemplate =  'maneuver-' + CSkies.getPrimaryFaction( $Affiliation ) + '-lower-back-template';
 		sheet.paintImage( g, imageTemplate, 0, 0);
 	}
 }

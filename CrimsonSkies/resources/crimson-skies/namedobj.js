@@ -16,7 +16,7 @@ importClass( resources.ResourceKit );
 
 // Note that anything that we put in 'this' while inside this function will
 // be available from our named object later.
-function XwingObject() {
+function CSkiesObject() {
 	this.GAME_CODE = 'CS';
 	
 	const base = 'crimson-skies/';
@@ -26,7 +26,7 @@ function XwingObject() {
     var bank_gothic = new Array( 'crimson-skies/fonts/bank-gothic-md-bt.ttf' );
     var kimberly = new Array( 'crimson-skies/fonts/kimberley-bl.ttf' );
     var eurostile = new Array( 'crimson-skies/fonts/eurostile-lt-std.otf' );
-    var xwing = new Array( 'crimson-skies/fonts/xwing-miniatures.ttf' );
+    var xwing = new Array( 'crimson-skies/fonts/crimson-skies-symbols.ttf' );
     var xwingships = new Array( 'crimson-skies/fonts/xwing-miniatures-ships.ttf' );
     		
 	this.headingFamily = FontUtils.registerFontFamilyFromResources.apply( this, bank_gothic );
@@ -116,6 +116,7 @@ function XwingObject() {
 		box.setReplacementForTag( 'lock', '<icon>l</icon>');
 		box.setReplacementForTag( 'cloak', '<icon>k</icon>');
 		box.setReplacementForTag( 'slam', '<icon>s</icon>');
+		box.setReplacementForTag( 'drift', '<icon>g</icon>');
 		box.setReplacementForTag( 'reinforce', '<icon>i</icon>');
 		box.setReplacementForTag( 'recover', '<icon>v</icon>');
 		box.setReplacementForTag( 'coordinate', '<icon>o</icon>');
@@ -309,6 +310,7 @@ function XwingObject() {
 		    case 'lock': iconChar = 'l'; break;
 		    case 'cloak': iconChar = 'k'; break;
 		    case 'slam': iconChar = 's'; break;
+		    case 'drift': iconChar = 'g'; break;
 		    case 'reinforce': iconChar = 'i'; break;
 		    case 'recover': iconChar = 'v'; break;
 		    case 'coordinate': iconChar = 'o'; break;
@@ -394,8 +396,8 @@ function XwingObject() {
 // Create the object and place it in the named object database;
 // then we can look it up from other scripts in the same way, e.g.:
 //
-// const Xwing = Eons.namedObjects.Xwing;
-// println( Xwing.titleFamily );
+// const CSkies = Eons.namedObjects.CSkies;
+// println( CSkies.titleFamily );
 //
 
-Eons.namedObjects.Xwing = new XwingObject();
+Eons.namedObjects.CSkies = new CSkiesObject();
