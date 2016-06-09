@@ -1,6 +1,7 @@
 #WARNING:
 #If this file is deleted then this folder will no
 #longer appear to be a project/task in Strange Eons.
+<<<<<<< HEAD
 #Thu Jun 09 09:58:15 EDT 2016
 open-folders=\:CrimsonSkies\:CrimsonSkies/resources\:CrimsonSkies/resources/crimson-skies\:CrimsonSkies/resources/crimson-skies/text\:test
 first-row=15
@@ -8,3 +9,12 @@ res-id=henning
 notes=
 type=PROJECT
 selected-members=\:Crimson-Skies.seext
+=======
+#Tue Jan 26 21:47:35 CET 2016
+open-folders=\:X-wing\:test
+first-row=0
+res-id=henning
+notes=
+type=PROJECT
+selected-members=\:test
+>>>>>>> d97335f6c00fb4fd88158d8d301147478ba87c1e

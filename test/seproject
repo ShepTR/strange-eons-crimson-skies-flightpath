@@ -1,6 +1,10 @@
 #WARNING:
 #If this file is deleted then this folder will no
 #longer appear to be a project/task in Strange Eons.
+<<<<<<< HEAD
 #Thu Jun 09 09:58:15 EDT 2016
+=======
+#Tue Jan 26 21:47:35 CET 2016
+>>>>>>> d97335f6c00fb4fd88158d8d301147478ba87c1e
 icon=cgj/devtools/task.png
 type=CATALOGUE
