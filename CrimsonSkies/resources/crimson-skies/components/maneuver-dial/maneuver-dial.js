@@ -34,8 +34,10 @@ function create( diy ) {
 	$Huge = 'no';
 	$ManeuverS5 = 'na';
 	$ManeuverK5 = 'na';
+	//
 	$ManeuverS4 = 'white';
 	$ManeuverK4 = 'na';
+	///
 	$ManeuverS3 = 'white';
 	$ManeuverLT3 = 'red';
 	$ManeuverRT3 = 'white';
@@ -45,27 +47,54 @@ function create( diy ) {
 	$ManeuverRL3 = 'na';
 	$ManeuverLR3 = 'na';
 	$ManeuverRR3 = 'na';
+	$ManeuverLC3 = 'na';
+    $ManeuverRC3 = 'na';
+    $ManeuverLP3 = 'na';
+    $ManeuverRP3 = 'na';
+    $ManeuverLS3 = 'na';
+    $ManeuverRS3 = 'na';
+    $ManeuverLO3 = 'na';
+    $ManeuverRO3 = 'na';
 	$ManeuverK3 = 'na';
-	$ManeuverS2 = 'green';
+	//
+	$ManeuverS2 = 'white';
 	$ManeuverLT2 = 'red';
 	$ManeuverRT2 = 'white';
-	$ManeuverLB2 = 'white';
-	$ManeuverRB2 = 'green';
+	$ManeuverLB2 = 'red';
+	$ManeuverRB2 = 'white';
 	$ManeuverLL2 = 'na';
 	$ManeuverRL2 = 'na';
 	$ManeuverLR2 = 'na';
 	$ManeuverRR2 = 'na';
+	$ManeuverLC2 = 'na';
+    $ManeuverRC2 = 'na';
+    $ManeuverLP2 = 'na';
+    $ManeuverRP2 = 'na';
+    $ManeuverLS2 = 'na';
+    $ManeuverRS2 = 'na';
+    $ManeuverLO2 = 'na';
+    $ManeuverRO2 = 'na';
 	$ManeuverK2 = 'na';
-	$ManeuverS1 = 'green';
-	$ManeuverLT1 = 'na';
-	$ManeuverRT1 = 'na';
-	$ManeuverLB1 = 'white';
-	$ManeuverRB1 = 'green';
+	//
+	$ManeuverS1 = 'white';
+	$ManeuverLT1 = 'red';
+	$ManeuverRT1 = 'white';
+	$ManeuverLB1 = 'red';
+	$ManeuverRB1 = 'white';
 	$ManeuverLL1 = 'na';
 	$ManeuverRL1 = 'na';
 	$ManeuverLR1 = 'na';
 	$ManeuverRR1 = 'na';
+	$ManeuverLC1 = 'na';
+    $ManeuverRC1 = 'na';
+    $ManeuverLP1 = 'na';
+    $ManeuverRP1 = 'na';
+    $ManeuverLS1 = 'na';
+    $ManeuverRS1 = 'na';
+    $ManeuverLO1 = 'na';
+    $ManeuverRO1 = 'na';
 	$ManeuverK1 = 'na';
+	//
 	$Maneuver0 = 'na';
 	$HugeManeuverS4 = 'na';
 	$HugeManeuverS3 = 'na';
@@ -158,18 +187,62 @@ function createInterface( diy, editor ) {
 	rightRollItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-right-roll.png' ), 18 ) );
 	rightRollItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-roll.png' ), 18 ) );
 
+    // CS Maneuvers - Curve
+
     leftCurveItems = [];
 	leftCurveItems[0] = ListItem( 'na', '-' );
-	leftCurveItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-left-curve.png' ), 18 ) );
-	leftCurveItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-left-curve.png' ), 18 ) );
+	leftCurveItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-left-curve.png' ), 18 ) );
+	leftCurveItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-left-curve.png' ), 18 ) );
 	leftCurveItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-left-curve.png' ), 18 ) );
 
     rightCurveItems = [];
 	rightCurveItems[0] = ListItem( 'na', '-' );
-	rightCurveItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-curve.png' ), 18 ) );
-	rightCurveItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-curve.png' ), 18 ) );
+	rightCurveItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-right-curve.png' ), 18 ) );
+	rightCurveItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-right-curve.png' ), 18 ) );
 	rightCurveItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-curve.png' ), 18 ) );
+  
+    // CS Maneuvers - Powerslide
+     
+    leftPowerslideItems = [];
+	leftPowerslideItems[0] = ListItem( 'na', '-' );
+	leftPowerslideItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-left-powerslide.png' ), 18 ) );
+	leftPowerslideItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-left-powerslide.png' ), 18 ) );
+	leftPowerslideItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-left-powerslide.png' ), 18 ) );
 
+    rightPowerslideItems = [];
+	rightPowerslideItems[0] = ListItem( 'na', '-' );
+	rightPowerslideItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-right-powerslide.png' ), 18 ) );
+	rightPowerslideItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-right-powerslide.png' ), 18 ) );
+	rightPowerslideItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-powerslide.png' ), 18 ) );
+
+    // CS Maneuvers - Slide
+
+    leftSlideItems = [];
+	leftSlideItems[0] = ListItem( 'na', '-' );
+	leftSlideItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-left-slide.png' ), 18 ) );
+	leftSlideItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-left-slide.png' ), 18 ) );
+	leftSlideItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-left-slide.png' ), 18 ) );
+
+    rightSlideItems = [];
+	rightSlideItems[0] = ListItem( 'na', '-' );
+	rightSlideItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-right-slide.png' ), 18 ) );
+	rightSlideItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-right-slide.png' ), 18 ) );
+	rightSlideItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-slide.png' ), 18 ) );
+	
+	// CS Maneuvers - Rollout
+	
+	leftRolloutItems = [];
+	leftRolloutItems[0] = ListItem( 'na', '-' );
+	leftRolloutItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-left-out.png' ), 18 ) );
+	leftRolloutItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-left-out.png' ), 18 ) );
+	leftRolloutItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-left-out.png' ), 18 ) );
+
+    rightRolloutItems = [];
+	rightRolloutItems[0] = ListItem( 'na', '-' );
+	rightRolloutItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-right-out.png' ), 18 ) );
+	rightRolloutItems[2] = ListItem( 'white', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/white-right-out.png' ), 18 ) );
+	rightRolloutItems[3] = ListItem( 'red', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/red-right-out.png' ), 18 ) );
+	
 	stationaryItems = [];
 	stationaryItems[0] = ListItem( 'na', '-' );
 	stationaryItems[1] = ListItem( 'green', '', ImageUtils.createIcon( ImageUtils.get( 'crimson-skies/components/maneuver-dial/images/green-stationary.png' ), 18 ) );
@@ -181,12 +254,16 @@ function createInterface( diy, editor ) {
 	
 	maneuverBoxK5 = comboBox( kTurnItems );
 	bindings.add( 'ManeuverK5', maneuverBoxK5, [2] );
+	
+	//-------------------------------------------------------------------------------------
 			
 	maneuverBoxS4 = comboBox( straightItems );
 	bindings.add( 'ManeuverS4', maneuverBoxS4, [2] );
 
 	maneuverBoxK4 = comboBox( kTurnItems );
 	bindings.add( 'ManeuverK4', maneuverBoxK4, [2] );
+	
+	//-------------------------------------------------------------------------------------
 	
 	maneuverBoxS3 = comboBox( straightItems );
 	bindings.add( 'ManeuverS3', maneuverBoxS3, [2] );
@@ -215,15 +292,38 @@ function createInterface( diy, editor ) {
 	maneuverBoxRR3 = comboBox( rightRollItems );
 	bindings.add( 'ManeuverRR3', maneuverBoxRR3, [2] );
 	
+	//
+	
 	maneuverBoxLC3 = comboBox( leftCurveItems );
 	bindings.add( 'ManeuverLC3', maneuverBoxLC3, [2] );
 	
 	maneuverBoxRC3 = comboBox( rightCurveItems );
 	bindings.add( 'ManeuverRC3', maneuverBoxRC3, [2] );
 	
-	maneuverBoxK3 = comboBox( kTurnItems );
-	bindings.add( 'ManeuverK3', maneuverBoxK3, [2] );
+	maneuverBoxLP3 = comboBox( leftPowerslideItems );
+	bindings.add( 'ManeuverLP3', maneuverBoxLP3, [2] );
+
+	maneuverBoxRP3 = comboBox( rightPowerslideItems );
+	bindings.add( 'ManeuverRP3', maneuverBoxRP3, [2] );
+		
+	maneuverBoxLS3 = comboBox( leftSlideItems );
+	bindings.add( 'ManeuverLC3', maneuverBoxLS3, [2] );
+
+	maneuverBoxRS3 = comboBox( rightSlideItems );
+	bindings.add( 'ManeuverRC3', maneuverBoxRS3, [2] );
 	
+	maneuverBoxLO3 = comboBox( leftRolloutItems );
+	bindings.add( 'ManeuverLO3', maneuverBoxLO3, [2] );
+
+	maneuverBoxRO3 = comboBox( rightRolloutItems );
+	bindings.add( 'ManeuverRO3', maneuverBoxRO3, [2] );
+	
+    maneuverBoxK3 = comboBox( kTurnItems );
+	bindings.add( 'ManeuverK3', maneuverBoxK3, [2] );
+
+	
+	//-------------------------------------------------------------------------------------
+
 	maneuverBoxS2 = comboBox( straightItems );
 	bindings.add( 'ManeuverS2', maneuverBoxS2, [2] );
 	
@@ -254,6 +354,34 @@ function createInterface( diy, editor ) {
 	maneuverBoxK2 = comboBox( kTurnItems );
 	bindings.add( 'ManeuverK2', maneuverBoxK2, [2] );
 	
+	//
+	
+		maneuverBoxLC2 = comboBox( leftCurveItems );
+	bindings.add( 'ManeuverLC2', maneuverBoxLC2, [2] );
+	
+	maneuverBoxRC2 = comboBox( rightCurveItems );
+	bindings.add( 'ManeuverRC2', maneuverBoxRC2, [2] );
+	
+	maneuverBoxLP2 = comboBox( leftPowerslideItems );
+	bindings.add( 'ManeuverLP2', maneuverBoxLP2, [2] );
+
+	maneuverBoxRP2 = comboBox( rightPowerslideItems );
+	bindings.add( 'ManeuverRP2', maneuverBoxRP2, [2] );
+		
+	maneuverBoxLS2 = comboBox( leftSlideItems );
+	bindings.add( 'ManeuverLC2', maneuverBoxLS2, [2] );
+
+	maneuverBoxRS2 = comboBox( rightSlideItems );
+	bindings.add( 'ManeuverRC2', maneuverBoxRS2, [2] );
+	
+	maneuverBoxLO2 = comboBox( leftRolloutItems );
+	bindings.add( 'ManeuverLO2', maneuverBoxLO2, [2] );
+
+	maneuverBoxRO2 = comboBox( rightRolloutItems );
+	bindings.add( 'ManeuverRO2', maneuverBoxRO2, [2] );
+	
+	//------------------------------------------------------------------------------
+	
 	maneuverBoxS1 = comboBox( straightItems );
 	bindings.add( 'ManeuverS1', maneuverBoxS1, [2] );
 	
@@ -283,6 +411,30 @@ function createInterface( diy, editor ) {
 
 	maneuverBoxK1 = comboBox( kTurnItems );
 	bindings.add( 'ManeuverK1', maneuverBoxK1, [2] );
+	
+	maneuverBoxLC1 = comboBox( leftCurveItems );
+	bindings.add( 'ManeuverLC1', maneuverBoxLC1, [2] );
+	
+	maneuverBoxRC1 = comboBox( rightCurveItems );
+	bindings.add( 'ManeuverRC1', maneuverBoxRC1, [2] );
+	
+	maneuverBoxLP1 = comboBox( leftPowerslideItems );
+	bindings.add( 'ManeuverLP1', maneuverBoxLP1, [2] );
+
+	maneuverBoxRP1 = comboBox( rightPowerslideItems );
+	bindings.add( 'ManeuverRP1', maneuverBoxRP1, [2] );
+		
+	maneuverBoxLS1 = comboBox( leftSlideItems );
+	bindings.add( 'ManeuverLC1', maneuverBoxLS1, [2] );
+
+	maneuverBoxRS1 = comboBox( rightSlideItems );
+	bindings.add( 'ManeuverRC1', maneuverBoxRS1, [2] );
+	
+	maneuverBoxLO1 = comboBox( leftRolloutItems );
+	bindings.add( 'ManeuverLO1', maneuverBoxLO1, [2] );
+
+	maneuverBoxRO1 = comboBox( rightRolloutItems );
+	bindings.add( 'ManeuverRO1', maneuverBoxRO1, [2] );
 
 	maneuverBox0 = comboBox( stationaryItems );
 	bindings.add( 'Maneuver0', maneuverBox0, [2] );
@@ -359,9 +511,9 @@ function createInterface( diy, editor ) {
 	mainPanel.place( @cs-maneuvers, 'span 3', maneuverTip, 'wrap' );
 	mainPanel.place( @cs-maneuver-speed-5, '', '', '', '', '', '', '', '', '', maneuverBoxS5, '', '', '', '', '', '', '', '', '', maneuverBoxK5, 'wrap' );
 	mainPanel.place( @cs-maneuver-speed-4, '', '', '', '', '', '', '', '', '', maneuverBoxS4, '', '', '', '', '', '', '', '', '', maneuverBoxK4, 'wrap' );
-	mainPanel.place( @cs-maneuver-speed-3, '', maneuverBoxLC3, '', maneuverBoxLR3, '', maneuverBoxLL3, '', maneuverBoxLT3, '', maneuverBoxLB3, '', maneuverBoxS3, '', maneuverBoxRB3, '', maneuverBoxRT3, '', maneuverBoxRL3, '', maneuverBoxRR3, '', maneuverBoxRC3, '', maneuverBoxK3, 'wrap' );
-	mainPanel.place( @cs-maneuver-speed-2, '', maneuverBoxLR2, '', maneuverBoxLL2, '', maneuverBoxLT2, '', maneuverBoxLB2, '', maneuverBoxS2, '', maneuverBoxRB2, '', maneuverBoxRT2, '', maneuverBoxRL2, '', maneuverBoxRR2, '', maneuverBoxK2, 'wrap' );
-	mainPanel.place( @cs-maneuver-speed-1, '', maneuverBoxLR1, '', maneuverBoxLL1, '', maneuverBoxLT1, '', maneuverBoxLB1, '', maneuverBoxS1, '', maneuverBoxRB1, '', maneuverBoxRT1, '', maneuverBoxRL1, '', maneuverBoxRR1, '', maneuverBoxK1, 'wrap' );
+	mainPanel.place( @cs-maneuver-speed-3, '', maneuverBoxLS3, '', maneuverBoxLO3, '', maneuverBoxLP3, '', maneuverBoxLC3, '', maneuverBoxLR3, '', maneuverBoxLL3, '', maneuverBoxLT3, '', maneuverBoxLB3, '', maneuverBoxS3, '', maneuverBoxRB3, '', maneuverBoxRT3, '', maneuverBoxRL3, '', maneuverBoxRR3, '', maneuverBoxRC3, '', maneuverBoxRP3, '',maneuverBoxRO3, '', maneuverBoxRS3, '',maneuverBoxK3, 'wrap' );
+	mainPanel.place( @cs-maneuver-speed-2, '', maneuverBoxLS2, '', maneuverBoxLO2, '', maneuverBoxLP2, '', maneuverBoxLC2, '', maneuverBoxLR2, '', maneuverBoxLL2, '', maneuverBoxLT2, '', maneuverBoxLB2, '', maneuverBoxS2, '', maneuverBoxRB2, '', maneuverBoxRT2, '', maneuverBoxRL2, '', maneuverBoxRR2, '', maneuverBoxRC2, '', maneuverBoxRP2, '',maneuverBoxRO2, '', maneuverBoxRS2, '',maneuverBoxK2, 'wrap' );
+	mainPanel.place( @cs-maneuver-speed-1, '', maneuverBoxLS1, '', maneuverBoxLO1, '', maneuverBoxLP1, '', maneuverBoxLC1, '', maneuverBoxLR1, '', maneuverBoxLL1, '', maneuverBoxLT1, '', maneuverBoxLB1, '', maneuverBoxS1, '', maneuverBoxRB1, '', maneuverBoxRT1, '', maneuverBoxRL1, '', maneuverBoxRR1, '', maneuverBoxRC1, '', maneuverBoxRP1, '',maneuverBoxRO1, '', maneuverBoxRS1, '',maneuverBoxK1, 'wrap' );
 	mainPanel.place( @cs-maneuver-speed-0, '', '', '', '', '', '', '', '', '', maneuverBox0, '', '', '', '', '', '', '', '', 'wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
 	mainPanel.place( @cs-huge-maneuvers, 'span 4, wrap' );
@@ -519,16 +671,30 @@ function paintFront( g, diy, sheet ) {
 			if( $HugeManeuver0 != 'na' ) { maneuverArray.push( 'white-stationary,speed-0,' + $HugeManeuver0 + '-energy' ); }
 		} else {
 			if( $Maneuver0 != 'na' ) { maneuverArray.push( $Maneuver0 + '-stationary,speed-0' ); }
+			// 
+			if( $ManeuverLS1 != 'na' ) { maneuverArray.push( $ManeuverLS1 + '-left-slide,speed-1' ); }
+            if( $ManeuverLS1 != 'na' ) { maneuverArray.push( $ManeuverLS1 + '-left-out,speed-1' ); }
+			if( $ManeuverLS1 != 'na' ) { maneuverArray.push( $ManeuverLS1 + '-left-powerslide,speed-1' ); }
+			if( $ManeuverLC1 != 'na' ) { maneuverArray.push( $ManeuverLC1 + '-left-curve,speed-1' ); }
 			if( $ManeuverLR1 != 'na' ) { maneuverArray.push( $ManeuverLR1 + '-left-roll,speed-1' ); }
 			if( $ManeuverLL1 != 'na' ) { maneuverArray.push( $ManeuverLL1 + '-left-loop,speed-1' ); }
 			if( $ManeuverLT1 != 'na' ) { maneuverArray.push( $ManeuverLT1 + '-left-turn,speed-1' ); }
-			if( $ManeuverLB1 != 'na' ) { maneuverArray.push( $ManeuverLB1 + '-left-bank,speed-1'); }
+			if( $ManeuverLB1 != 'na' ) { maneuverArray.push( $ManeuverLB1 + '-left-bank,speed-1' ); }
 			if( $ManeuverS1 != 'na' ) { maneuverArray.push( $ManeuverS1 + '-straight,speed-1' ); }
 			if( $ManeuverRB1 != 'na' ) { maneuverArray.push( $ManeuverRB1 + '-right-bank,speed-1' ); }
 			if( $ManeuverRT1 != 'na' ) { maneuverArray.push( $ManeuverRT1 + '-right-turn,speed-1' ); }
 			if( $ManeuverRL1 != 'na' ) { maneuverArray.push( $ManeuverRL1 + '-right-loop,speed-1' ); }
 			if( $ManeuverRR1 != 'na' ) { maneuverArray.push( $ManeuverRR1 + '-right-roll,speed-1' ); }
+			if( $ManeuverRC1 != 'na' ) { maneuverArray.push( $ManeuverRC1 + '-right-curve,speed-1' ); }
+			if( $ManeuverRS1 != 'na' ) { maneuverArray.push( $ManeuverRS1 + '-right-powerslide,speed-1' ); }
+			if( $ManeuverRS1 != 'na' ) { maneuverArray.push( $ManeuverRS1 + '-right-out,speed-1' ); }
+			if( $ManeuverRS1 != 'na' ) { maneuverArray.push( $ManeuverRS1 + '-right-slide,speed-1' ); }
 			if( $ManeuverK1 != 'na' ) { maneuverArray.push( $ManeuverK1 + '-k-turn,speed-1' ); }
+			//
+			if( $ManeuverLS2 != 'na' ) { maneuverArray.push( $ManeuverLS2 + '-left-slide,speed-2' ); }
+            if( $ManeuverLS2 != 'na' ) { maneuverArray.push( $ManeuverLS2 + '-left-out,speed-2' ); }
+			if( $ManeuverLS2 != 'na' ) { maneuverArray.push( $ManeuverLS2 + '-left-powerslide,speed-2' ); }
+			if( $ManeuverLC2 != 'na' ) { maneuverArray.push( $ManeuverLC2 + '-left-curve,speed-2' ); }
 			if( $ManeuverLR2 != 'na' ) { maneuverArray.push( $ManeuverLR2 + '-left-roll,speed-2' ); }
 			if( $ManeuverLL2 != 'na' ) { maneuverArray.push( $ManeuverLL2 + '-left-loop,speed-2' ); }
 			if( $ManeuverLT2 != 'na' ) { maneuverArray.push( $ManeuverLT2 + '-left-turn,speed-2' ); }
@@ -538,7 +704,15 @@ function paintFront( g, diy, sheet ) {
 			if( $ManeuverRT2 != 'na' ) { maneuverArray.push( $ManeuverRT2 + '-right-turn,speed-2' ); }
 			if( $ManeuverRL2 != 'na' ) { maneuverArray.push( $ManeuverRL2 + '-right-loop,speed-2' ); }
 			if( $ManeuverRR2 != 'na' ) { maneuverArray.push( $ManeuverRR2 + '-right-roll,speed-2' ); }
+			if( $ManeuverRC2 != 'na' ) { maneuverArray.push( $ManeuverRC2 + '-right-curve,speed-2' ); }
+			if( $ManeuverRS2 != 'na' ) { maneuverArray.push( $ManeuverRS2 + '-right-powerslide,speed-2' ); }
+			if( $ManeuverRS2 != 'na' ) { maneuverArray.push( $ManeuverRS2 + '-right-out,speed-2' ); }
+			if( $ManeuverRS2 != 'na' ) { maneuverArray.push( $ManeuverRS2 + '-right-slide,speed-2' ); }
 			if( $ManeuverK2 != 'na' ) { maneuverArray.push( $ManeuverK2 + '-k-turn,speed-2' ); }
+			//
+			if( $ManeuverLS3 != 'na' ) { maneuverArray.push( $ManeuverLS3 + '-left-slide,speed-3' ); }
+            if( $ManeuverLS3 != 'na' ) { maneuverArray.push( $ManeuverLS3 + '-left-out,speed-3' ); }
+			if( $ManeuverLS3 != 'na' ) { maneuverArray.push( $ManeuverLS3 + '-left-powerslide,speed-3' ); }
 			if( $ManeuverLC3 != 'na' ) { maneuverArray.push( $ManeuverLC3 + '-left-curve,speed-3' ); }
 			if( $ManeuverLR3 != 'na' ) { maneuverArray.push( $ManeuverLR3 + '-left-roll,speed-3' ); }
 			if( $ManeuverLL3 != 'na' ) { maneuverArray.push( $ManeuverLL3 + '-left-loop,speed-3' ); }
@@ -550,7 +724,11 @@ function paintFront( g, diy, sheet ) {
 			if( $ManeuverRL3 != 'na' ) { maneuverArray.push( $ManeuverRL3 + '-right-loop,speed-3' ); }
 			if( $ManeuverRR3 != 'na' ) { maneuverArray.push( $ManeuverRR3 + '-right-roll,speed-3' ); }
 			if( $ManeuverRC3 != 'na' ) { maneuverArray.push( $ManeuverRC3 + '-right-curve,speed-3' ); }
+			if( $ManeuverRS3 != 'na' ) { maneuverArray.push( $ManeuverRS3 + '-right-powerslide,speed-3' ); }
+			if( $ManeuverRS3 != 'na' ) { maneuverArray.push( $ManeuverRS3 + '-right-out,speed-3' ); }
+			if( $ManeuverRS3 != 'na' ) { maneuverArray.push( $ManeuverRS3 + '-right-slide,speed-3' ); }
 			if( $ManeuverK3 != 'na' ) { maneuverArray.push( $ManeuverK3 + '-k-turn,speed-3' ); }
+			//
 			if( $ManeuverS4 != 'na' ) { maneuverArray.push( $ManeuverS4 + '-straight,speed-4' ); }
 			if( $ManeuverK4 != 'na' ) { maneuverArray.push( $ManeuverK4 + '-k-turn,speed-4' ); }
 			if( $ManeuverS5 != 'na' ) { maneuverArray.push( $ManeuverS5 + '-straight,speed-5' ); }

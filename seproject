@@ -1,13 +1,13 @@
 #WARNING:
 #If this file is deleted then this folder will no
 #longer appear to be a project/task in Strange Eons.
-#Thu Jun 09 15:02:11 EDT 2016
+#Fri Jun 10 09:32:47 EDT 2016
 res-id=henning
-open-folders=\:CrimsonSkies\:CrimsonSkies/resources\:CrimsonSkies/resources/crimson-skies\:CrimsonSkies/resources/crimson-skies/components\:CrimsonSkies/resources/crimson-skies/components/maneuver-dial\:CrimsonSkies/resources/crimson-skies/components/maneuver-dial/images\:CrimsonSkies/resources/crimson-skies/components/pilot-card\:test
+open-folders=\:CrimsonSkies\:CrimsonSkies/resources\:CrimsonSkies/resources/crimson-skies\:CrimsonSkies/resources/crimson-skies/components\:CrimsonSkies/resources/crimson-skies/components/maneuver-dial\:CrimsonSkies/resources/crimson-skies/components/pilot-card\:CrimsonSkies/resources/crimson-skies/components/pilot-card/images\:test
 >>>>>>>=d97335f6c00fb4fd88158d8d301147478ba87c1e
 <<<<<<<=HEAD
 notes=
 type=PROJECT
-first-row=66
+first-row=32
 selected-members=\:CrimsonSkies.seext
 =\=\=\=\=\=\=
