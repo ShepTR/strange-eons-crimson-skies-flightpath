@@ -16,7 +16,6 @@ if( sourcefile == 'Quickscript' ) {
 }
 const CSkies = Eons.namedObjects.CSkies;
 
-
 function create( diy ) {
 	diy.version = 2;
 	diy.extensionName = 'CSkies.seext';
@@ -75,6 +74,9 @@ function createInterface( diy, editor ) {
 	upgradeItems[14] = ListItem( 'cargo', @cs-upgrade-cargo );
 	upgradeItems[15] = ListItem( 'modification', @cs-upgrade-modification );
 	upgradeItems[16] = ListItem( 'title', @cs-upgrade-title );
+    upgradeItems[17] = ListItem( 'airframe', @cs-upgrade-airframe );
+	upgradeItems[18] = ListItem( 'engine', @cs-upgrade-engine );
+	
 	typeBox = comboBox( upgradeItems );
 	bindings.add( 'UpgradeType', typeBox, [0,1] );
 
@@ -347,7 +349,7 @@ function paintBack( g, diy, sheet ) {
 	sheet.paintTemplateImage( g );
 	
 	// Draw the Upgrade Icon
-	sheet.paintImage( g, 'upgrade-back-' + $UpgradeType, 'upgrade-back-symbol-region');
+	//sheet.paintImage( g, 'upgrade-back-' + $UpgradeType, 'upgrade-back-symbol-region');
 }
 
 function onClear() {

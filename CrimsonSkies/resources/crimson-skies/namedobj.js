@@ -154,6 +154,8 @@ function CSkiesObject() {
 		box.setReplacementForTag( 'tech', '<icon>X</icon>');
 		box.setReplacementForTag( 'modification', '<icon>m</icon>');
 		box.setReplacementForTag( 'title', '<icon>t</icon>');
+		box.setReplacementForTag( 'airframe', '<icon>D</icon>');
+		box.setReplacementForTag( 'engine', '<icon>F</icon>');
 
 		shipStyle = new TextStyle(
 			FAMILY,		this.shipFamily,
@@ -348,6 +350,8 @@ function CSkiesObject() {
 		    case 'tech': iconChar = 'X'; break;
 		    case 'modification': iconChar = 'm'; break;
 		    case 'title': iconChar = 't'; break;
+		    case 'airframe': iconChar = 'D'; break;
+		    case 'engine': iconChar = 'F'; break;
 		}		
 		return iconChar;
 	};

@@ -79,7 +79,7 @@ function create( diy ) {
 	diy.name = #cs-pilot-name;
 	$ShipType = #cs-pilot-ship;
 	$Affiliation = #cs-pilot-affiliation;
-	$PilotSkill = #cs-pilot-ps;
+	//$PilotSkill = #cs-pilot-ps;
 	$UniquePilot = #cs-pilot-unique;
 	$ElitePilotTalent = #cs-pilot-elite;
 	$Text = #cs-pilot-text;
@@ -168,9 +168,9 @@ function createInterface( diy, editor ) {
 
 	nameField = textField( 'X', 30 );
 	
-	psItems = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-	psBox = comboBox( psItems );
-	bindings.add( 'PilotSkill', psBox, [0,2] );
+	//psItems = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+	//psBox = comboBox( psItems );
+	//bindings.add( 'PilotSkill', psBox, [0,2] );
 
 	uniqueCheckbox = checkBox( @cs-unique );
 	bindings.add( 'UniquePilot', uniqueCheckbox, [0,2] );
@@ -273,6 +273,9 @@ function createInterface( diy, editor ) {
 	upgradeItems[9] = ListItem( 'crew', @cs-upgrade-crew );
 	upgradeItems[10] = ListItem( 'illicit', @cs-upgrade-illicit );
 	upgradeItems[11] = ListItem( 'tech', @cs-upgrade-tech );
+	upgradeItems[12] = ListItem( 'elite', @cs-upgrade-elite );
+	upgradeItems[13] = ListItem( 'airframe', @cs-upgrade-airframe );
+	upgradeItems[14] = ListItem( 'engine', @cs-upgrade-engine );
 		
 	customUpgradeBox1 = comboBox( upgradeItems );
 	bindings.add( 'CustomUpgrade1', customUpgradeBox1, [0] );
@@ -549,7 +552,7 @@ function paintFront( g, diy, sheet ) {
 		tokenNameBox.drawAsSingleLine( g, R( tokenSize + '-token-name' ) );
 		
 		// Draw the Pilot Skill
-		sheet.drawOutlinedTitle( g, $PilotSkill, R( tokenSize + '-token-ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+		//sheet.drawOutlinedTitle( g, $PilotSkill, R( tokenSize + '-token-ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 		// Draw the Primary Weapon Value
 		if( $ShipType == 'custom' ) {
@@ -725,7 +728,7 @@ function paintFront( g, diy, sheet ) {
   	}
   
 	// Draw the Pilot Skill
-	sheet.drawOutlinedTitle( g, $PilotSkill, R('ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
+	//sheet.drawOutlinedTitle( g, $PilotSkill, R('ps'), CSkies.numberFont, 18, 2, CSkies.getColor('skill'), Color.BLACK, sheet.ALIGN_CENTER, true);
 
 	// Draw the Primary Weapon Symbol
 	if( $ShipType == 'custom' ) {
@@ -774,7 +777,8 @@ function paintFront( g, diy, sheet ) {
 	} else {
 		baseCost = getShipStat( $ShipType, 'basecost' );
 	}
-	totalCost = parseInt( baseCost ) + parseInt( $PilotSkill ) + parseInt( $PointAdjuster ) + uniquePilotCost;
+	//totalCost = parseInt( baseCost ) + parseInt( $PilotSkill ) + parseInt( $PointAdjuster ) + uniquePilotCost;
+	totalCost = parseInt( baseCost ) + parseInt( $PointAdjuster ) + uniquePilotCost;
 	sheet.drawOutlinedTitle( g, totalCost.toString(), R( 'cost' ), CSkies.numberFont, 10, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
 	
 	// Draw the Pilot Ability/Flavour Text
@@ -854,7 +858,7 @@ function paintBack( g, diy, sheet ) {
 function onClear() {
 	$ShipType = 'custom';
 	$Affiliation = 'alliance';
-	$PilotSkill = '0';
+	//$PilotSkill = '0';
 	$UniquePilot = 'no';
 	$ElitePilotTalent = 'no';
 	$Text = '';
