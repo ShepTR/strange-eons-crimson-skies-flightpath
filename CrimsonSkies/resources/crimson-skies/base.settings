@@ -276,11 +276,13 @@ upgrade-lower-range-region = 378,520,86,50
 upgrade-text-region = 73,397,339,290
 upgrade-cost-region = 372,667,83,54
 
-upgrade-icon-region = 25,648,80,80
+upgrade-icon-region = 25,651,80,80
 upgrade-icon-overlay-region = -9,617,150,150
 upgrade-icon-overlay = crimson-skies/components/upgrade-card/images/upgrade-icon-overlay.jp2
-upgrade-icon2-region = 117,648,80,80
+upgrade-icon2-region = 117,651,80,80
 upgrade-icon2-overlay-region = 83,617,150,150
+upgrade-icon3-region = 209,651,80,80
+upgrade-icon3-overlay-region = 175,617,150,150
 
 
 upgrade-back-symbol-region = 90,224,300,300
@@ -301,6 +303,8 @@ upgrade-back-cargo =  crimson-skies/components/upgrade-card/images/big-upgrade-c
 upgrade-back-team =  crimson-skies/components/upgrade-card/images/big-upgrade-team.jp2
 upgrade-back-illicit =  crimson-skies/components/upgrade-card/images/big-upgrade-illicit.jp2
 upgrade-back-salvaged =  crimson-skies/components/upgrade-card/images/big-upgrade-salvaged.jp2
+upgrade-back-airframe = crimson-skies/components/upgrade-card/images/big-upgrade-airframe.jp2
+upgrade-back-engine = crimson-skies/components/upgrade-card/images/big-upgrade-engine.jp2
 
 upgrade-legal-region = 8,159,13,121
 upgrade-legal = crimson-skies/components/upgrade-card/images/legal-text.png

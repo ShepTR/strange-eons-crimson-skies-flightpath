@@ -37,6 +37,7 @@ function create( diy ) {
 	$UpgradeType = #cs-upgrade-type;
 	$UniqueUpgrade = #cs-upgrade-unique;
 	$DoubleIcon = #cs-upgrade-double;
+    $TripleIcon = #cs-upgrade-triple;
 	$EnergyLimit = #cs-upgrade-energylimit;
 	$SecondaryWeapon = #cs-upgrade-weapon;
 	$AttackValue = #cs-upgrade-attack;
@@ -85,6 +86,9 @@ function createInterface( diy, editor ) {
 		
 	doubleCheckbox = checkBox( @cs-double );
 	bindings.add( 'DoubleIcon', doubleCheckbox, [0] );
+	
+	tripleCheckbox = checkBox( @cs-triple );
+    bindings.add( 'TripleIcon', tripleCheckbox, [0] );
 
 	energyItems = [ '-', '1', '2', '3', '4', '5', '6', '7', '8' , '9', '10', '+1', '+2', '+3', '+4', '+5'];
 	energyLimitBox = comboBox( energyItems );
@@ -147,7 +151,8 @@ function createInterface( diy, editor ) {
 	mainPanel.place( @cs-upgradename, '', nameField, 'span, growx, wrap' );
 	mainPanel.place( uniqueCheckbox, 'wrap para' );
 	mainPanel.place( @cs-upgradetype, '', typeBox, 'span, growx, wrap para' );
-	mainPanel.place( doubleCheckbox, 'wrap para' );
+	mainPanel.place( doubleCheckbox, 'wrap para' ); 
+    mainPanel.place( tripleCheckbox, 'wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
 	mainPanel.place( @cs-energylimit, '', energyLimitBox, 'wmin 70, span 2, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
@@ -215,7 +220,7 @@ function createFrontPainter( diy, sheet ) {
 	
 	upgradeTextBox = CSkies.abilityBox( sheet, 7 );
 	
-	upgradeIconBox = CSkies.abilityBox( sheet, 14 );
+	upgradeIconBox = CSkies.abilityBox( sheet, 15 );
 }
 
 function createBackPainter( diy, sheet ) {
@@ -333,6 +338,10 @@ function paintFront( g, diy, sheet ) {
 		if( $$DoubleIcon.yesNo ) {
 			sheet.paintImage( g, 'upgrade-icon-overlay', 'upgrade-icon2-overlay-region');
 			upgradeIconBox.draw( g, R('icon2') );
+		}
+		if( $$TripleIcon.yesNo ) {
+			sheet.paintImage( g, 'upgrade-icon-overlay', 'upgrade-icon3-overlay-region');
+			upgradeIconBox.draw( g, R('icon3') );
 		}	
 	}
 
@@ -349,7 +358,7 @@ function paintBack( g, diy, sheet ) {
 	sheet.paintTemplateImage( g );
 	
 	// Draw the Upgrade Icon
-	//sheet.paintImage( g, 'upgrade-back-' + $UpgradeType, 'upgrade-back-symbol-region');
+	sheet.paintImage( g, 'upgrade-back-' + $UpgradeType, 'upgrade-back-symbol-region');
 }
 
 function onClear() {
