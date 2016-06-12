@@ -38,6 +38,7 @@ function create( diy ) {
 	$UniqueUpgrade = #cs-upgrade-unique;
 	$DoubleIcon = #cs-upgrade-double;
     $TripleIcon = #cs-upgrade-triple;
+    $NoIcon = #cs-upgrade-none;
 	$EnergyLimit = #cs-upgrade-energylimit;
 	$SecondaryWeapon = #cs-upgrade-weapon;
 	$AttackValue = #cs-upgrade-attack;
