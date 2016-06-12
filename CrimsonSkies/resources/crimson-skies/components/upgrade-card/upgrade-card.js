@@ -38,7 +38,7 @@ function create( diy ) {
 	$UniqueUpgrade = #cs-upgrade-unique;
 	$DoubleIcon = #cs-upgrade-double;
     $TripleIcon = #cs-upgrade-triple;
-    $NoIcon = #cs-upgrade-none;
+    $NoIcon = #cs-upgrade-no;
 	$EnergyLimit = #cs-upgrade-energylimit;
 	$SecondaryWeapon = #cs-upgrade-weapon;
 	$AttackValue = #cs-upgrade-attack;
@@ -90,6 +90,9 @@ function createInterface( diy, editor ) {
 	
 	tripleCheckbox = checkBox( @cs-triple );
     bindings.add( 'TripleIcon', tripleCheckbox, [0] );
+    
+    noIconCheckbox = checkBox( @cs-no );
+	bindings.add( 'NoIcon', noIconCheckbox, [0] );
 
 	energyItems = [ '-', '1', '2', '3', '4', '5', '6', '7', '8' , '9', '10', '+1', '+2', '+3', '+4', '+5'];
 	energyLimitBox = comboBox( energyItems );
@@ -154,6 +157,7 @@ function createInterface( diy, editor ) {
 	mainPanel.place( @cs-upgradetype, '', typeBox, 'span, growx, wrap para' );
 	mainPanel.place( doubleCheckbox, 'wrap para' ); 
     mainPanel.place( tripleCheckbox, 'wrap para' );
+    mainPanel.place( noIconCheckbox, 'wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
 	mainPanel.place( @cs-energylimit, '', energyLimitBox, 'wmin 70, span 2, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
@@ -331,11 +335,12 @@ function paintFront( g, diy, sheet ) {
 	// Draw the Upgrade Text
 	upgradeTextBox.draw( g, R('text') );
 	
-	// Draw the Upgrade Icon
-	if( $UpgradeType != 'modification' && $UpgradeType != 'title' ) {
-		sheet.paintImage( g, 'upgrade-icon-overlay', 'upgrade-icon-overlay-region');
+	if ( $$NoIcon.yesNo ) {
+	} else {
+		if( $UpgradeType != 'modification' && $UpgradeType != 'title' ) {
+		    sheet.paintImage( g, 'upgrade-icon-overlay', 'upgrade-icon-overlay-region');
 		upgradeIconBox.markupText = '<' + $UpgradeType + '>';
-		upgradeIconBox.draw( g, R('icon') );
+		   upgradeIconBox.draw( g, R('icon') );
 		if( $$DoubleIcon.yesNo ) {
 			sheet.paintImage( g, 'upgrade-icon-overlay', 'upgrade-icon2-overlay-region');
 			upgradeIconBox.draw( g, R('icon2') );
@@ -345,6 +350,7 @@ function paintFront( g, diy, sheet ) {
 			upgradeIconBox.draw( g, R('icon3') );
 		}	
 	}
+}
 
 	// Draw the Point Cost
 	sheet.drawOutlinedTitle( g, $PointCost, R('cost'), CSkies.numberFont, 8, 0.5, Color.BLACK, Color.WHITE, sheet.ALIGN_CENTER, true);
@@ -365,7 +371,9 @@ function paintBack( g, diy, sheet ) {
 function onClear() {
 	$UpgradeType = 'elite';
 	$UniqueUpgrade = 'no';
+	$NoIcon = 'no';
 	$DoubleIcon = 'no';
+	$TripleIcon = 'no';
 	$EnergyLimit = '-';
 	$SecondaryWeapon = 'no';
 	$AttackValue = '0';
