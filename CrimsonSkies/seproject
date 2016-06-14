@@ -1,7 +1,7 @@
 #WARNING:
 #If this file is deleted then this folder will no
 #longer appear to be a project/task in Strange Eons.
-#Sun Jun 12 18:59:17 EDT 2016
+#Sun Jun 12 22:34:03 EDT 2016
 type=PLUGIN
-clean-ext=class
 bundle-file=CrimsonSkies.seext
+clean-ext=class
