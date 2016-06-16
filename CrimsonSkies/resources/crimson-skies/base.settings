@@ -305,6 +305,7 @@ upgrade-back-illicit =  crimson-skies/components/upgrade-card/images/big-upgrade
 upgrade-back-salvaged =  crimson-skies/components/upgrade-card/images/big-upgrade-salvaged.jp2
 upgrade-back-airframe = crimson-skies/components/upgrade-card/images/big-upgrade-airframe.jp2
 upgrade-back-engine = crimson-skies/components/upgrade-card/images/big-upgrade-engine.jp2
+upgrade-back-ammo = crimson-skies/components/upgrade-card/images/big-upgrade-bomb.jp2
 
 upgrade-legal-region = 8,159,13,121
 upgrade-legal = crimson-skies/components/upgrade-card/images/legal-text.png

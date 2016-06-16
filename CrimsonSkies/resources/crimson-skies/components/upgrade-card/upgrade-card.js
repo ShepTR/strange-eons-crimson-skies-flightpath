@@ -78,6 +78,7 @@ function createInterface( diy, editor ) {
 	upgradeItems[16] = ListItem( 'title', @cs-upgrade-title );
     upgradeItems[17] = ListItem( 'airframe', @cs-upgrade-airframe );
 	upgradeItems[18] = ListItem( 'engine', @cs-upgrade-engine );
+	upgradeItems[19] = ListItem( 'ammo', @cs-upgrade-ammo );
 	
 	typeBox = comboBox( upgradeItems );
 	bindings.add( 'UpgradeType', typeBox, [0,1] );

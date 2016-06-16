@@ -26,14 +26,14 @@ function CSkiesObject() {
     var bank_gothic = new Array( 'crimson-skies/fonts/bank-gothic-md-bt.ttf' );
     var kimberly = new Array( 'crimson-skies/fonts/kimberley-bl.ttf' );
     var eurostile = new Array( 'crimson-skies/fonts/eurostile-lt-std.otf' );
-    var xwing = new Array( 'crimson-skies/fonts/crimson-skies-symbols.ttf' );
-    var xwingships = new Array( 'crimson-skies/fonts/xwing-miniatures-ships.ttf' );
+    var cskies = new Array( 'crimson-skies/fonts/crimson-skies-symbols.ttf' );
+    var cskiesships = new Array( 'crimson-skies/fonts/xwing-miniatures-ships.ttf' );
     		
 	this.headingFamily = FontUtils.registerFontFamilyFromResources.apply( this, bank_gothic );
 	this.numberFamily = FontUtils.registerFontFamilyFromResources.apply( this, kimberly );
 	this.abilityFamily = FontUtils.registerFontFamilyFromResources.apply( this, eurostile );
-	this.iconFamily = FontUtils.registerFontFamilyFromResources.apply( this, xwing );
-	this.shipFamily = FontUtils.registerFontFamilyFromResources.apply( this, xwingships );	
+	this.iconFamily = FontUtils.registerFontFamilyFromResources.apply( this, cskies );
+	this.shipFamily = FontUtils.registerFontFamilyFromResources.apply( this, cskiesships );	
 	
 	// The font we use for stats like Pilot skill and Upgrade bar; when you draw text
 	// using one of the sheet's text drbloodhawk methods, you need to create
@@ -117,6 +117,7 @@ function CSkiesObject() {
 		box.setReplacementForTag( 'cloak', '<icon>k</icon>');
 		box.setReplacementForTag( 'slam', '<icon>s</icon>');
 		box.setReplacementForTag( 'drift', '<icon>g</icon>');
+		box.setReplacementForTag( 'repair', '<icon>K</icon>');
 		box.setReplacementForTag( 'reinforce', '<icon>i</icon>');
 		box.setReplacementForTag( 'recover', '<icon>v</icon>');
 		box.setReplacementForTag( 'coordinate', '<icon>o</icon>');
@@ -156,6 +157,7 @@ function CSkiesObject() {
 		box.setReplacementForTag( 'title', '<icon>t</icon>');
 		box.setReplacementForTag( 'airframe', '<icon>D</icon>');
 		box.setReplacementForTag( 'engine', '<icon>F</icon>');
+		box.setReplacementForTag( 'ammo', '<icon>J</icon>');
 
 		shipStyle = new TextStyle(
 			FAMILY,		this.shipFamily,
@@ -313,6 +315,7 @@ function CSkiesObject() {
 		    case 'cloak': iconChar = 'k'; break;
 		    case 'slam': iconChar = 's'; break;
 		    case 'drift': iconChar = 'g'; break;
+		    case 'repair': iconChar = 'K'; break;
 		    case 'reinforce': iconChar = 'i'; break;
 		    case 'recover': iconChar = 'v'; break;
 		    case 'coordinate': iconChar = 'o'; break;
@@ -352,6 +355,7 @@ function CSkiesObject() {
 		    case 'title': iconChar = 't'; break;
 		    case 'airframe': iconChar = 'D'; break;
 		    case 'engine': iconChar = 'F'; break;
+		    case 'ammo': iconChar = 'J'; break;
 		}		
 		return iconChar;
 	};

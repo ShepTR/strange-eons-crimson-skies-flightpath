@@ -100,6 +100,7 @@ function create( diy ) {
 	$CustomCloakAction = #cs-pilot-custom-cloak;
 	$CustomSlamAction = #cs-pilot-custom-slam;
 	$CustomDriftAction = #cs-pilot-custom-drift;
+    $CustomRepairAction = #cs-pilot-custom-repair;
 	$CustomUpgrade1 = #cs-pilot-custom-upgrade-1;
 	$CustomUpgrade2 = #cs-pilot-custom-upgrade-2;
 	$CustomUpgrade3 = #cs-pilot-custom-upgrade-3;
@@ -196,7 +197,7 @@ function createInterface( diy, editor ) {
 	mainPanel.place( @cs-affiliation, '', affiliationBox, 'growx' );	
 	mainPanel.place( @cs-ship, '', shipBox, 'growx,wrap' );
 	mainPanel.place( @cs-pilotname, '', nameField, 'span, growx, wrap' );
-	mainPanel.place( @cs-ps, '', psBox, 'wmin 52' );
+	//mainPanel.place( @cs-ps, '', psBox, 'wmin 52' );
 	mainPanel.place( uniqueCheckbox, '' );
 	mainPanel.place( eliteCheckbox, 'wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
@@ -259,6 +260,8 @@ function createInterface( diy, editor ) {
 	bindings.add( 'CustomSlamAction', customSlamCheckbox, [0,2] );
 	customDriftCheckbox = checkBox( @cs-action-drift );
 	bindings.add( 'CustomDriftAction', customDriftCheckbox, [0,2] );
+	customRepairCheckbox = checkBox( @cs-action-repair );
+	bindings.add( 'CustomRepairAction', customRepairCheckbox, [0,2] );
 	
 	upgradeItems = [];
 	upgradeItems[0] = ListItem( '-', '-' );
@@ -276,6 +279,7 @@ function createInterface( diy, editor ) {
 	upgradeItems[12] = ListItem( 'elite', @cs-upgrade-elite );
 	upgradeItems[13] = ListItem( 'airframe', @cs-upgrade-airframe );
 	upgradeItems[14] = ListItem( 'engine', @cs-upgrade-engine );
+    upgradeItems[15] = ListItem( 'ammo', @cs-upgrade-ammo );
 		
 	customUpgradeBox1 = comboBox( upgradeItems );
 	bindings.add( 'CustomUpgrade1', customUpgradeBox1, [0] );
@@ -347,7 +351,7 @@ function createInterface( diy, editor ) {
 	customPanel.place( @cs-actions, 'wrap' );
 	customPanel.place( customFocusCheckbox, '', customLockCheckbox, '', customRollCheckbox, 'wrap' );
 	customPanel.place( customBoostCheckbox, '', customEvadeCheckbox, '', customCloakCheckbox, 'wrap' );
-	customPanel.place( customSlamCheckbox, '', customDriftCheckbox, 'wrap para' );
+	customPanel.place( customSlamCheckbox, '', customDriftCheckbox, '', customRepairCheckbox, 'wrap' );
 	customPanel.place( separator(), 'span, growx, wrap para' );
 	customPanel.place( @cs-upgrades, 'wrap' );
 	customPanel.place( customUpgradeBox1, 'wmin 100', customUpgradeBox2, 'wmin 100', customUpgradeBox3, 'wmin 100, wrap' );
@@ -381,6 +385,7 @@ function createInterface( diy, editor ) {
 				customCloakCheckbox.setEnabled(false);
 				customSlamCheckbox.setEnabled(false);
 				customDriftCheckbox.setEnabled(false);
+				customRepairCheckbox.setEnabled(false);
 				customUpgradeBox1.setEnabled(false);
 				customUpgradeBox2.setEnabled(false);
 				customUpgradeBox3.setEnabled(false);
@@ -408,6 +413,7 @@ function createInterface( diy, editor ) {
 				customCloakCheckbox.setEnabled(true);
 				customSlamCheckbox.setEnabled(true);
 				customDriftCheckbox.setEnabled(true);
+				customRepairCheckbox.setEnabled(true);
 				customUpgradeBox1.setEnabled(true);
 				customUpgradeBox2.setEnabled(true);
 				customUpgradeBox3.setEnabled(true);
@@ -663,6 +669,7 @@ function paintFront( g, diy, sheet ) {
 			if( $$CustomCloakAction.yesNo ) { actions.push( 'cloak' ); }
 			if( $$CustomSlamAction.yesNo ) { actions.push( 'slam' ); }
 			if( $$CustomDriftAction.yesNo ) { actions.push( 'drift' ); }
+			if( $$CustomRepairAction.yesNo ) { actions.push( 'repair' ); }
 		} else {
 			actions = getShipStat( $ShipType, 'actions' ).split( ',' );		
 		}
@@ -700,7 +707,7 @@ function paintFront( g, diy, sheet ) {
 
 	// Draw the name
 	if( $$UniquePilot.yesNo ) {
-		nameBox.markupText = '<uni>' + diy.name;
+		nameBox.markupText = diy.name;
 	} else {
 		nameBox.markupText = diy.name;
 	}
@@ -801,6 +808,7 @@ function paintFront( g, diy, sheet ) {
 		if( $$CustomCloakAction.yesNo ) { actions.push( 'cloak' ); }
 		if( $$CustomSlamAction.yesNo ) { actions.push( 'slam' ); }
 		if( $$CustomDriftAction.yesNo ) { actions.push( 'drift' ); }
+		if( $$CustomRepairAction.yesNo ) { actions.push( 'repair' ); }
 	} else {
 		actions = getShipStat( $ShipType, 'actions' ).split( ',' );		
 	}	
@@ -878,6 +886,7 @@ function onClear() {
 	$CustomCloakAction = 'no';
 	$CustomSlamAction = 'no';
 	$CustomDriftAction = 'no';
+		$CustomRepairAction = 'no';
 	$CustomUpgrade1 = '-';
 	$CustomUpgrade2 = '-';
 	$CustomUpgrade3 = '-';
