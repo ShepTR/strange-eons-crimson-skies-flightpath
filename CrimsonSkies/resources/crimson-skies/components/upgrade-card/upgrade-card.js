@@ -47,6 +47,7 @@ function create( diy ) {
 	$LockRequired = #cs-upgrade-lock;
 	$Restriction = #cs-upgrade-restriction;
 	$Action = #cs-upgrade-action;
+	$Discard = #cs-upgrade-discard;
 	$Energy = #cs-upgrade-energy;
 	$Text = #cs-upgrade-text;
 	$PointCost = #cs-upgrade-cost;
@@ -139,6 +140,9 @@ function createInterface( diy, editor ) {
 	
 	actionCheckbox = checkBox( @cs-action );
 	bindings.add( 'Action', actionCheckbox, [0] );
+	
+	discardCheckbox = checkBox( @cs-discard );
+	bindings.add( 'Discard', discardCheckbox, [0] );
 
 	energyCheckbox = checkBox( @cs-energy-action );
 	bindings.add( 'Energy', energyCheckbox, [0] );
@@ -168,7 +172,7 @@ function createInterface( diy, editor ) {
 	mainPanel.place( @cs-range, '', rangeBox, 'wmin 70, span 2, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
 	mainPanel.place( @cs-upgraderestriction, '', upgradeRestrictionField, 'span, growx, wrap' );
-	mainPanel.place( @cs-upgradetext, '', actionCheckbox, '', energyCheckbox, 'span, growx, wrap' );
+	mainPanel.place( @cs-upgradetext, '', actionCheckbox, '', discardCheckbox, '', energyCheckbox, 'span, growx, wrap' );
 	mainPanel.place( upgradeTextArea, 'span, grow, wrap para' );
 	mainPanel.place( specialSymbolsTip, 'span, grow, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
@@ -192,12 +196,19 @@ function createInterface( diy, editor ) {
 				if( actionCheckbox.selected ) {
 					actionCheckbox.setEnabled(true);
 					energyCheckbox.setEnabled(false);
+					discardCheckbox.setEnabled(false);
 				} else if( energyCheckbox.selected ) {
 					actionCheckbox.setEnabled(false);
 					energyCheckbox.setEnabled(true);
+					discardCheckbox.setEnabled(false);
+			    } else if( discardCheckbox.selected ) {
+					actionCheckbox.setEnabled(false);
+					energyCheckbox.setEnabled(false);
+					discardCheckbox.setEnabled(true);
 				} else {
 					actionCheckbox.setEnabled(true);
 					energyCheckbox.setEnabled(true);
+					discardCheckbox.setEnabled(true);
 				}
 				attackValueBox.setEnabled(false);
 				rangeBox.setEnabled(false);
@@ -217,6 +228,7 @@ function createInterface( diy, editor ) {
 	// Add action listeners
 	weaponCheckbox.addActionListener( actionFunction );
 	actionCheckbox.addActionListener( actionFunction );
+	discardCheckbox.addActionListener( actionFunction );
 	energyCheckbox.addActionListener( actionFunction );
 }
 
@@ -325,6 +337,8 @@ function paintFront( g, diy, sheet ) {
 		if( header ) { header = #cs-cardtext-attack + ' (' + header + '): '; } else { header = #cs-cardtext-attack + ': '; }
 	} else if( $$Action.yesNo ) {
 		header = #cs-cardtext-action + ': ';
+	} else if( $$Discard.yesNo ) {
+		header = #cs-cardtext-discard + ': ';
 	} else if( $$Energy.yesNo ) {
 		header = #cs-cardtext-energy + ': ';
 	}
@@ -383,6 +397,7 @@ function onClear() {
 	$LockRequired = 'no';
 	$Restriction = '';
 	$Action = 'no';
+	$Discard = 'no';
 	$Energy = 'no';
 	$Text = '';
 	$PointCost = '0';
