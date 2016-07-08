@@ -45,6 +45,7 @@ function create( diy ) {
 	$Range = #cs-upgrade-range;
 	$FocusRequired = #cs-upgrade-focus;
 	$LockRequired = #cs-upgrade-lock;
+	$TrackingRequired = #cs-upgrade-tracking;
 	$Restriction = #cs-upgrade-restriction;
 	$Action = #cs-upgrade-action;
 	$Discard = #cs-upgrade-discard;
@@ -134,6 +135,9 @@ function createInterface( diy, editor ) {
 	requiredLockCheckbox = checkBox( @cs-required-lock );
 	bindings.add( 'LockRequired', requiredLockCheckbox, [0] );
 	
+	requiredTrackingCheckbox = checkBox( @cs-required-tracking );
+	bindings.add( 'TrackingRequired', requiredTrackingCheckbox, [0] );
+	
 	restrictionItems = [ #cs-restriction-limited, #cs-restriction-rebel, #cs-restriction-imperial, #cs-restriction-scum, #cs-restriction-small, #cs-restriction-large, #cs-restriction-huge ];
 	upgradeRestrictionField = autocompletionField( restrictionItems );
 	bindings.add( 'Restriction', upgradeRestrictionField, [0] );
@@ -167,7 +171,7 @@ function createInterface( diy, editor ) {
 	mainPanel.place( @cs-energylimit, '', energyLimitBox, 'wmin 70, span 2, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
 	mainPanel.place( weaponCheckbox, 'wrap para' );
-	mainPanel.place( requiredFocusCheckbox, '', requiredLockCheckbox, 'wrap para' );
+	mainPanel.place( requiredFocusCheckbox, '', requiredTrackingCheckbox, '', requiredLockCheckbox, 'wrap para' );
 	mainPanel.place( @cs-attackvalue, '', attackValueBox, 'wmin 70, span 2, wrap' );
 	mainPanel.place( @cs-range, '', rangeBox, 'wmin 70, span 2, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
@@ -189,6 +193,7 @@ function createInterface( diy, editor ) {
 				attackValueBox.setEnabled(true);
 				rangeBox.setEnabled(true);
 				requiredFocusCheckbox.setEnabled(true);
+				requiredTrackingCheckbox.setEnabled(true);
 				requiredLockCheckbox.setEnabled(true);
 				actionCheckbox.setEnabled(false);
 				energyCheckbox.setEnabled(false);
@@ -213,6 +218,7 @@ function createInterface( diy, editor ) {
 				attackValueBox.setEnabled(false);
 				rangeBox.setEnabled(false);
 				requiredFocusCheckbox.setEnabled(false);
+				requiredTrackingCheckbox.setEnabled(false);
 				requiredLockCheckbox.setEnabled(false);
 			}
 		} catch( ex ) {
@@ -333,6 +339,7 @@ function paintFront( g, diy, sheet ) {
 	var header = '';
 	if( $$SecondaryWeapon.yesNo ) {
 		if( $$FocusRequired.yesNo ) { header = #cs-cardtext-focus; }
+		if( $$TrackingRequired.yesNo ) { header = #cs-cardtext-tracking; }
 		if( $$LockRequired.yesNo ) { if( header ) { header = header + ', ' + #cs-cardtext-lock; } else { header = #cs-cardtext-lock; } }
 		if( header ) { header = #cs-cardtext-attack + ' (' + header + '): '; } else { header = #cs-cardtext-attack + ': '; }
 	} else if( $$Action.yesNo ) {
