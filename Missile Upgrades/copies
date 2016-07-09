@@ -1,0 +1,32 @@
+# This file allows you add multiple copies of a component to a deck without
+# creating extra copies of the file. When using a command like Make Deck or
+# Virtual Deck, this list will be consulted for each .eon file in the task
+# folder. If the list has an entry for the .eon file, then the listed number of
+# copies will be used. Otherwise, one copy is used.
+#
+# To add an entry for an .eon file, add a line that consists of the file name
+# (the .eon extension is optional), an equals sign, and the number of copies:
+#
+# AnnotatedManual.eon = 4
+#
+# Tip:  You can add copies to this file by dragging the desired .eon
+#       component file from the project pane and dropping it in the text editor.
+#
+# Note: When entering a file name, the following characters must be "escaped"
+#       by inserting a \ in front of them: :, =, #, !, \, and spaces.
+#
+Aerial\ Torpedoes = 4
+Armor\ Piercing\ Missil = 4
+Beeper-Seeker\ Missiles = 4
+Choker\ Rockets = 4
+Cluster\ Rockets = 4
+Concussion\ Missiles = 4
+Drill\ Rockets = 4
+Flak\ Rockets = 4
+Flare\ Rockets = 4
+High\ Explosive\ Rockets = 4
+Incendiary\ Rockets = 4
+Magnetic\ Missiles = 4
+Smoke\ Rockets = 4
+Sonic\ Rockets = 4
+Steelhead\ Rockets = 4

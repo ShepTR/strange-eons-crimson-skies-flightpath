@@ -509,8 +509,8 @@ function createInterface( diy, editor ) {
 	mainPanel.place( hugeCheckbox, 'span, wrap para' );
 	mainPanel.place( separator(), 'span, growx, wrap para' );
 	mainPanel.place( @cs-maneuvers, 'span 3', maneuverTip, 'wrap' );
-	mainPanel.place( @cs-maneuver-speed-5, '', '', '', '', '', '', '', '', '', maneuverBoxS5, '', '', '', '', '', '', '', '', '', maneuverBoxK5, 'wrap' );
-	mainPanel.place( @cs-maneuver-speed-4, '', '', '', '', '', '', '', '', '', maneuverBoxS4, '', '', '', '', '', '', '', '', '', maneuverBoxK4, 'wrap' );
+	mainPanel.place( @cs-maneuver-speed-5, '', '', '', '', '', '', '', '', '', '', '', '', '', maneuverBoxS5, '', '', '', '', '', '', '', '', '', maneuverBoxK5, 'wrap' );
+	mainPanel.place( @cs-maneuver-speed-4, '', '', '', '', '', '', '', '', '', '', '', '', '', maneuverBoxS4, '', '', '', '', '', '', '', '', '', maneuverBoxK4, 'wrap' );
 	mainPanel.place( @cs-maneuver-speed-3, '', maneuverBoxLS3, '', maneuverBoxLO3, '', maneuverBoxLP3, '', maneuverBoxLC3, '', maneuverBoxLR3, '', maneuverBoxLL3, '', maneuverBoxLT3, '', maneuverBoxLB3, '', maneuverBoxS3, '', maneuverBoxRB3, '', maneuverBoxRT3, '', maneuverBoxRL3, '', maneuverBoxRR3, '', maneuverBoxRC3, '', maneuverBoxRP3, '',maneuverBoxRO3, '', maneuverBoxRS3, '',maneuverBoxK3, 'wrap' );
 	mainPanel.place( @cs-maneuver-speed-2, '', maneuverBoxLS2, '', maneuverBoxLO2, '', maneuverBoxLP2, '', maneuverBoxLC2, '', maneuverBoxLR2, '', maneuverBoxLL2, '', maneuverBoxLT2, '', maneuverBoxLB2, '', maneuverBoxS2, '', maneuverBoxRB2, '', maneuverBoxRT2, '', maneuverBoxRL2, '', maneuverBoxRR2, '', maneuverBoxRC2, '', maneuverBoxRP2, '',maneuverBoxRO2, '', maneuverBoxRS2, '',maneuverBoxK2, 'wrap' );
 	mainPanel.place( @cs-maneuver-speed-1, '', maneuverBoxLS1, '', maneuverBoxLO1, '', maneuverBoxLP1, '', maneuverBoxLC1, '', maneuverBoxLR1, '', maneuverBoxLL1, '', maneuverBoxLT1, '', maneuverBoxLB1, '', maneuverBoxS1, '', maneuverBoxRB1, '', maneuverBoxRT1, '', maneuverBoxRL1, '', maneuverBoxRR1, '', maneuverBoxRC1, '', maneuverBoxRP1, '',maneuverBoxRO1, '', maneuverBoxRS1, '',maneuverBoxK1, 'wrap' );
@@ -673,8 +673,8 @@ function paintFront( g, diy, sheet ) {
 			if( $Maneuver0 != 'na' ) { maneuverArray.push( $Maneuver0 + '-stationary,speed-0' ); }
 			// 
 			if( $ManeuverLS1 != 'na' ) { maneuverArray.push( $ManeuverLS1 + '-left-slide,speed-1' ); }
-            if( $ManeuverLS1 != 'na' ) { maneuverArray.push( $ManeuverLS1 + '-left-out,speed-1' ); }
-			if( $ManeuverLS1 != 'na' ) { maneuverArray.push( $ManeuverLS1 + '-left-powerslide,speed-1' ); }
+            if( $ManeuverLO1 != 'na' ) { maneuverArray.push( $ManeuverLO1 + '-left-out,speed-1' ); }
+			if( $ManeuverLP1 != 'na' ) { maneuverArray.push( $ManeuverLP1 + '-left-powerslide,speed-1' ); }
 			if( $ManeuverLC1 != 'na' ) { maneuverArray.push( $ManeuverLC1 + '-left-curve,speed-1' ); }
 			if( $ManeuverLR1 != 'na' ) { maneuverArray.push( $ManeuverLR1 + '-left-roll,speed-1' ); }
 			if( $ManeuverLL1 != 'na' ) { maneuverArray.push( $ManeuverLL1 + '-left-loop,speed-1' ); }
@@ -686,14 +686,14 @@ function paintFront( g, diy, sheet ) {
 			if( $ManeuverRL1 != 'na' ) { maneuverArray.push( $ManeuverRL1 + '-right-loop,speed-1' ); }
 			if( $ManeuverRR1 != 'na' ) { maneuverArray.push( $ManeuverRR1 + '-right-roll,speed-1' ); }
 			if( $ManeuverRC1 != 'na' ) { maneuverArray.push( $ManeuverRC1 + '-right-curve,speed-1' ); }
-			if( $ManeuverRS1 != 'na' ) { maneuverArray.push( $ManeuverRS1 + '-right-powerslide,speed-1' ); }
-			if( $ManeuverRS1 != 'na' ) { maneuverArray.push( $ManeuverRS1 + '-right-out,speed-1' ); }
+			if( $ManeuverRP1 != 'na' ) { maneuverArray.push( $ManeuverRP1 + '-right-powerslide,speed-1' ); }
+			if( $ManeuverRO1 != 'na' ) { maneuverArray.push( $ManeuverRO1 + '-right-out,speed-1' ); }
 			if( $ManeuverRS1 != 'na' ) { maneuverArray.push( $ManeuverRS1 + '-right-slide,speed-1' ); }
 			if( $ManeuverK1 != 'na' ) { maneuverArray.push( $ManeuverK1 + '-k-turn,speed-1' ); }
 			//
 			if( $ManeuverLS2 != 'na' ) { maneuverArray.push( $ManeuverLS2 + '-left-slide,speed-2' ); }
-            if( $ManeuverLS2 != 'na' ) { maneuverArray.push( $ManeuverLS2 + '-left-out,speed-2' ); }
-			if( $ManeuverLS2 != 'na' ) { maneuverArray.push( $ManeuverLS2 + '-left-powerslide,speed-2' ); }
+            if( $ManeuverLO2 != 'na' ) { maneuverArray.push( $ManeuverLO2 + '-left-out,speed-2' ); }
+			if( $ManeuverLP2 != 'na' ) { maneuverArray.push( $ManeuverLP2 + '-left-powerslide,speed-2' ); }
 			if( $ManeuverLC2 != 'na' ) { maneuverArray.push( $ManeuverLC2 + '-left-curve,speed-2' ); }
 			if( $ManeuverLR2 != 'na' ) { maneuverArray.push( $ManeuverLR2 + '-left-roll,speed-2' ); }
 			if( $ManeuverLL2 != 'na' ) { maneuverArray.push( $ManeuverLL2 + '-left-loop,speed-2' ); }
@@ -705,14 +705,14 @@ function paintFront( g, diy, sheet ) {
 			if( $ManeuverRL2 != 'na' ) { maneuverArray.push( $ManeuverRL2 + '-right-loop,speed-2' ); }
 			if( $ManeuverRR2 != 'na' ) { maneuverArray.push( $ManeuverRR2 + '-right-roll,speed-2' ); }
 			if( $ManeuverRC2 != 'na' ) { maneuverArray.push( $ManeuverRC2 + '-right-curve,speed-2' ); }
-			if( $ManeuverRS2 != 'na' ) { maneuverArray.push( $ManeuverRS2 + '-right-powerslide,speed-2' ); }
-			if( $ManeuverRS2 != 'na' ) { maneuverArray.push( $ManeuverRS2 + '-right-out,speed-2' ); }
+			if( $ManeuverRP2 != 'na' ) { maneuverArray.push( $ManeuverRP2 + '-right-powerslide,speed-2' ); }
+			if( $ManeuverRO2 != 'na' ) { maneuverArray.push( $ManeuverRO2 + '-right-out,speed-2' ); }
 			if( $ManeuverRS2 != 'na' ) { maneuverArray.push( $ManeuverRS2 + '-right-slide,speed-2' ); }
 			if( $ManeuverK2 != 'na' ) { maneuverArray.push( $ManeuverK2 + '-k-turn,speed-2' ); }
 			//
 			if( $ManeuverLS3 != 'na' ) { maneuverArray.push( $ManeuverLS3 + '-left-slide,speed-3' ); }
-            if( $ManeuverLS3 != 'na' ) { maneuverArray.push( $ManeuverLS3 + '-left-out,speed-3' ); }
-			if( $ManeuverLS3 != 'na' ) { maneuverArray.push( $ManeuverLS3 + '-left-powerslide,speed-3' ); }
+            if( $ManeuverLO3 != 'na' ) { maneuverArray.push( $ManeuverLO3 + '-left-out,speed-3' ); }
+			if( $ManeuverLP3 != 'na' ) { maneuverArray.push( $ManeuverLP3 + '-left-powerslide,speed-3' ); }
 			if( $ManeuverLC3 != 'na' ) { maneuverArray.push( $ManeuverLC3 + '-left-curve,speed-3' ); }
 			if( $ManeuverLR3 != 'na' ) { maneuverArray.push( $ManeuverLR3 + '-left-roll,speed-3' ); }
 			if( $ManeuverLL3 != 'na' ) { maneuverArray.push( $ManeuverLL3 + '-left-loop,speed-3' ); }
@@ -724,8 +724,8 @@ function paintFront( g, diy, sheet ) {
 			if( $ManeuverRL3 != 'na' ) { maneuverArray.push( $ManeuverRL3 + '-right-loop,speed-3' ); }
 			if( $ManeuverRR3 != 'na' ) { maneuverArray.push( $ManeuverRR3 + '-right-roll,speed-3' ); }
 			if( $ManeuverRC3 != 'na' ) { maneuverArray.push( $ManeuverRC3 + '-right-curve,speed-3' ); }
-			if( $ManeuverRS3 != 'na' ) { maneuverArray.push( $ManeuverRS3 + '-right-powerslide,speed-3' ); }
-			if( $ManeuverRS3 != 'na' ) { maneuverArray.push( $ManeuverRS3 + '-right-out,speed-3' ); }
+			if( $ManeuverRP3 != 'na' ) { maneuverArray.push( $ManeuverRP3 + '-right-powerslide,speed-3' ); }
+			if( $ManeuverRO3 != 'na' ) { maneuverArray.push( $ManeuverRO3 + '-right-out,speed-3' ); }
 			if( $ManeuverRS3 != 'na' ) { maneuverArray.push( $ManeuverRS3 + '-right-slide,speed-3' ); }
 			if( $ManeuverK3 != 'na' ) { maneuverArray.push( $ManeuverK3 + '-k-turn,speed-3' ); }
 			//
