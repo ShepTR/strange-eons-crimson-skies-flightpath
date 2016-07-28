@@ -1,0 +1,77 @@
+# This file allows you add multiple copies of a component to a deck without
+# creating extra copies of the file. When using a command like Make Deck or
+# Virtual Deck, this list will be consulted for each .eon file in the task
+# folder. If the list has an entry for the .eon file, then the listed number of
+# copies will be used. Otherwise, one copy is used.
+#
+# To add an entry for an .eon file, add a line that consists of the file name
+# (the .eon extension is optional), an equals sign, and the number of copies:
+#
+# AnnotatedManual.eon = 1
+#
+# Tip:  You can add copies to this file by dragging the desired .eon
+#       component file from the project pane and dropping it in the text editor.
+#
+# Note: When entering a file name, the following characters must be "escaped"
+#       by inserting a \ in front of them: :, =, #, !, \, and spaces.
+#
+Abel\ Hollmann = 1
+Angel\ Copy-cat\ Devereaux = 1
+Big\ John\ Washington = 1
+Blake\ Aviation\ Security\ Agent = 4
+Broadway\ Bombers\ Volunteer = 4
+Brooklyn\ Betty\ Charles = 1
+Capt\ Dick\ Remington = 1
+Capt\ Glenn\ Quick-draw\ Kenner = 1
+Capt\ Joshua\ Burman = 1
+Capt\ Norm\ Houston = 1
+Capt.\ Theodicus\ Grease\ Hill-Kopp = 1
+Carlton\ Carpetbagger\ Hawthorne = 1
+Charlotte\ Charlie\ Steele = 1
+Diana\ Double\ Dare\ Dale = 1
+Eddie\ Sparks\ Conroy = 1
+Elgin\ Packard = 1
+Elizabeth\ Schofield = 1
+Ellen\ Sue\ Tex\ Ryder = 1
+Eugene\ Money\ Man\ Windthorpe = 1
+Fortune\ Hunters\ Scavenger = 4
+Fortune\ Hunters\ Scout = 4
+Harry\ Lucky\ Kenyon = 1
+Heather\ Ivy\ Iverian = 1
+Henrietta\ Hettyhawk\ Corbett = 1
+Hollywood\ Knights\ Enforcer = 4
+Hollywood\ Knights\ Outrider = 4
+Horace\ Castle = 1
+Howard\ Spectre\ Hughes = 1
+Jack\ Jack-O\ Mulligan = 1
+Jackson\ Fogarty = 1
+Jay\ Evans = 1
+Jesse\ Waxman = 1
+Jonathan\ Genghis\ Kahn = 1
+Kenneth\ Iron\ Horse\ Vanderbildt = 1
+Loyle\ Show-stopper\ Crawford = 1
+Lt\ Carmen\ Killer\ Flores = 1
+Lt\ Karl\ Wrong-way\ Gruner = 1
+Lt\ Mack\ Jump-start\ Halliday = 1
+Lt\ Rufino\ Roof\ Ayers = 1
+Lt\ Steve\ Glamour\ Boy\ Gardner = 1
+Lt\ Winifred\ Brandy\ Noonan = 1
+Luther\ Pry-bar\ Prymon = 1
+Malcolm\ Brick\ Gentry = 1
+Maria\ Sanchez = 1
+Maximo\ Ortega = 1
+Nancy\ Market\ Maker\ Morgan = 1
+Nathan\ Zachary = 1
+Patrick\ Gorman = 1
+Rafael\ Fencer\ Herrera = 1
+Red\ Skull\ Legion\ Bravo = 4
+Red\ Skull\ Legion\ Raider = 4
+Richard\ Wraith\ Merriwether-MacKenzie = 1
+Robert\ Buck\ Deere = 1
+Royman\ Harris = 1
+Sharon\ Beston = 1
+Taylor\ Seidlerman = 1
+Theresa\ Wells-Vanderbildt = 1
+Troy\ Freight\ Train\ Zwimmer = 1
+Valerie\ Ruth = 1
+Zola\ Zenova = 1
