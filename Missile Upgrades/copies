@@ -7,7 +7,7 @@
 # To add an entry for an .eon file, add a line that consists of the file name
 # (the .eon extension is optional), an equals sign, and the number of copies:
 #
-# AnnotatedManual.eon = 4
+# AnnotatedManual.eon = 1
 #
 # Tip:  You can add copies to this file by dragging the desired .eon
 #       component file from the project pane and dropping it in the text editor.
@@ -15,18 +15,18 @@
 # Note: When entering a file name, the following characters must be "escaped"
 #       by inserting a \ in front of them: :, =, #, !, \, and spaces.
 #
-Aerial\ Torpedoes = 4
-Armor\ Piercing\ Missil = 4
-Beeper-Seeker\ Missiles = 4
-Choker\ Rockets = 4
-Cluster\ Rockets = 4
-Concussion\ Missiles = 4
-Drill\ Rockets = 4
-Flak\ Rockets = 4
-Flare\ Rockets = 4
-High\ Explosive\ Rockets = 4
-Incendiary\ Rockets = 4
-Magnetic\ Missiles = 4
-Smoke\ Rockets = 4
-Sonic\ Rockets = 4
-Steelhead\ Rockets = 4
+Aerial\ Torpedoes = 1
+Armor\ Piercing\ Missil = 1
+Beeper-Seeker\ Missiles = 1
+Choker\ Rockets = 1
+Cluster\ Rockets = 1
+Concussion\ Missiles = 1
+Drill\ Rockets = 1
+Flak\ Rockets = 1
+Flare\ Rockets = 1
+High\ Explosive\ Rockets = 1
+Incendiary\ Rockets = 1
+Magnetic\ Missiles = 1
+Smoke\ Rockets = 1
+Sonic\ Rockets = 1
+Steelhead\ Rockets = 1

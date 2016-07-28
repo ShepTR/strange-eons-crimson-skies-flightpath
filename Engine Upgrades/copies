@@ -7,7 +7,7 @@
 # To add an entry for an .eon file, add a line that consists of the file name
 # (the .eon extension is optional), an equals sign, and the number of copies:
 #
-# AnnotatedManual.eon = 4
+# AnnotatedManual.eon = 1
 #
 # Tip:  You can add copies to this file by dragging the desired .eon
 #       component file from the project pane and dropping it in the text editor.
@@ -15,15 +15,15 @@
 # Note: When entering a file name, the following characters must be "escaped"
 #       by inserting a \ in front of them: :, =, #, !, \, and spaces.
 #
-Armored\ Fuel\ Tanks = 4
-Emergency\ Boosters = 4
-Experimental\ Jet\ Engine = 4
-Fine\ Tuned\ Engine = 4
-Improved\ Alternator = 4
-Mercury\ Cooling\ System = 4
-Nitro\ Tank = 4
-Refurbished\ Engine = 4
-Reverse\ Rockets = 4
-SLAM\ Rockets = 4
-Stall\ Out\ Pump = 4
-Tesla\ Drive = 4
+Armored\ Fuel\ Tanks = 1
+Emergency\ Boosters = 1
+Experimental\ Jet\ Engine = 1
+Fine\ Tuned\ Engine = 1
+Improved\ Alternator = 1
+Mercury\ Cooling\ System = 1
+Nitro\ Tank = 1
+Refurbished\ Engine = 1
+Reverse\ Rockets = 1
+SLAM\ Rockets = 1
+Stall\ Out\ Pump = 1
+Tesla\ Drive = 1
