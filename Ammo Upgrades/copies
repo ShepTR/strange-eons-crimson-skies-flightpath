@@ -7,7 +7,7 @@
 # To add an entry for an .eon file, add a line that consists of the file name
 # (the .eon extension is optional), an equals sign, and the number of copies:
 #
-# AnnotatedManual.eon = 4
+# AnnotatedManual.eon = 1
 #
 # Tip:  You can add copies to this file by dragging the desired .eon
 #       component file from the project pane and dropping it in the text editor.
@@ -15,21 +15,21 @@
 # Note: When entering a file name, the following characters must be "escaped"
 #       by inserting a \ in front of them: :, =, #, !, \, and spaces.
 #
-Armor\ Piercing\ Rounds1 = 4
-Armor\ Piercing\ Rounds2 = 4
-Cannon\ Refit = 4
-DumDumRounds1 = 4
-DumDumRounds2 = 4
-Explosive\ Ammo1 = 4
-Explosive\ Ammo2 = 4
-Magnesium\ Rounds1 = 4
-Magnesium\ Rounds2 = 4
-Popper\ Rounds\ 1 = 4
-Popper\ Rounds\ 2 = 4
-Recon\ Refit = 4
-Shock\ Pellets\ 1 = 4
-Shock\ Pellets\ 2 = 4
-Steelhead\ Rounds\ 1 = 4
-Steelhead\ Rounds\ 2 = 4
-Tracer\ Rounds\ 1 = 4
-Tracer\ Rounds\ 2 = 4
+Armor\ Piercing\ Rounds1 = 1
+Armor\ Piercing\ Rounds2 = 1
+Cannon\ Refit = 1
+DumDumRounds1 = 1
+DumDumRounds2 = 1
+Explosive\ Ammo1 = 1
+Explosive\ Ammo2 = 1
+Magnesium\ Rounds1 = 1
+Magnesium\ Rounds2 = 1
+Popper\ Rounds\ 1 = 1
+Popper\ Rounds\ 2 = 1
+Recon\ Refit = 1
+Shock\ Pellets\ 1 = 1
+Shock\ Pellets\ 2 = 1
+Steelhead\ Rounds\ 1 = 1
+Steelhead\ Rounds\ 2 = 1
+Tracer\ Rounds\ 1 = 1
+Tracer\ Rounds\ 2 = 1
